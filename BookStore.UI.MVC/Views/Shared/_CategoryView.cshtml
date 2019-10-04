@@ -1,0 +1,10 @@
+﻿@using BookStore.Model.Models
+@model List<Category>
+@foreach (Category item in Model)
+{
+    <li>
+        @Html.ActionLink(item.Name, "Category", "Home", new { id = item.ID }, null)
+    </li>
+}
+
+

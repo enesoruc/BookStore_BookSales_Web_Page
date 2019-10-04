@@ -1,0 +1,161 @@
+﻿@using BookStore.Model.Models
+@using BookStore.UI.MVC.Models
+@model List<CartItem>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--================Cart Area =================-->
+<section class="cart_area">
+    <div class="container">
+        <div class="cart_inner">
+            <div class="table-responsive">
+                <form method="post" action="/Cart/CartView">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Kitap</th>
+                                <th scope="col">Ücreti</th>
+                                <th scope="col">Adet</th>
+                                <th scope="col">Ücreti</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (int i = 0; i < Model.Count; i++)
+                            {
+                                <tr>
+                                    <td>
+                                        <a href="/Book/Search/@Model[i].BookID">
+                                            <div class="media">
+                                                <div class="d-flex">
+
+                                                    <img src="@Model[i].ImagePath" alt="@Model[i].BookName" style="width:50px;height:80px" />
+
+                                                </div>
+                                                <div class="media-body">
+                                                    <p style="color:black">@Model[i].BookName</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <h5 id="birimUcret" data-ucret="@Model[i].Price">@Model[i].Price ₺</h5>
+                                    </td>
+                                    <td>
+                                        <div class="product_count">
+                                            <input type="text" name="qty" id="sst@(i+1)" maxlength="12" value="1" title="Quantity:" class="input-text qty" />
+                                            <button id="deneme" onclick="var result = document.getElementById('sst'+@(i+1)); var sst = result.value; if( !isNaN( sst ))result.value++;return false;" class="increase items-count" type="button">
+                                                <i class="lnr lnr-chevron-up"></i>
+                                            </button>
+                                            <button id="deneme" onclick="var result = document.getElementById('sst'+@(i+1)); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;" class="reduced items-count" type="button">
+                                                <i class="lnr lnr-chevron-down"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <h5>@Model[i].Price ₺</h5>
+                                        <span id="tutar"></span>
+                                    </td>
+                                    <td><input type="button" id="sil" data-id="@Model[i].BookID" value="X" class="btn btn-sm" /></td>
+                                </tr>
+                            }
+                            <tr class="bottom_button">
+                                <td>
+                                    <a href="/Home/CouponCodeInfo"><b><i style="color:black">İndirim Kuponunuz Mu Var?</i></b></a>
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <div class="cupon_text">
+                                        <input type="text" placeholder="Kupon Kodu" />
+                                        <a class="main_btn" href="/Cart/CouponCode">Kuponu Kullan</a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <h5>Toplam Tutar</h5>
+                                </td>
+                                <td>
+                                    <h5>2160.00₺</h5>
+                                </td>
+                            </tr>
+                            <tr class="shipping_area">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <div class="shipping_box">
+                                        <select class="shipping_select">
+                                            <option value="1">Bangladesh</option>
+                                            <option value="2">India</option>
+                                            <option value="4">Pakistan</option>
+                                        </select>
+                                        <select class="shipping_select">
+                                            <option value="1">Select a State</option>
+                                            <option value="2">Select a State</option>
+                                            <option value="4">Select a State</option>
+                                        </select>
+                                        <input type="text" placeholder="Postcode/Zipcode" />
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="out_button_area">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <div class="checkout_btn_inner">
+                                        @*<a class="main_btn" href="#">Alışverişi Tamamla</a>*@
+                                        <button type="submit" class="main_btn">Alışverişi Tamamla</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Cart Area =================-->
+@section scripts{
+    <script>
+        $("#deneme").click(function () {
+            var ucret = $("#birimUcret").attr("data-ucret");
+
+            var miktar = $("#sst1").val;//////////////////////////
+            miktar = Number(miktar);
+            ucret = Number(ucret);
+            var tutar2 = (miktar * ucret);
+            $("#tutar").html = tutar2;
+            document.getElementById("tutar").innerHTML = tutar2;
+            document.getElementById('tutar').innerText = tutar2;
+            document.getElementById('tutar').innerHTML = tutar2;
+        });
+
+        $("#sil").click(function () {
+            var bookID = $(this).attr("data-id");
+            $.ajax({
+                url: "/Cart/DeleteToCart/" + bookID,
+                type: "GET",
+                dataType: "json",
+                contentType: "application/json;charset=utf-8",
+                success: function (data) {
+                    if (data != null) {
+                        $(".count").html(data);
+                        alert("Ürün Silindi");
+                        location.reload();
+                    }
+                    else {
+                        alert("Ürün Silinirken Hata Oluştu!");
+                    }
+                }
+
+
+            });
+        });
+    </script>
+}

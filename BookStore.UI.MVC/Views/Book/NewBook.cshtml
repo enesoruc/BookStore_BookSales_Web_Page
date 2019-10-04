@@ -1,0 +1,149 @@
+﻿@using BookStore.Model.Models
+@model Book
+@{
+    List<Category> categories = Session["categories"] as List<Category>;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="card">
+            <h5 class="card-header">Yeni Kitap</h5>
+            <div class="card-body">
+                <form method="post" action="/Book/NewBook" enctype="multipart/form-data">
+                    <div class="form-group">Kitap İsmi: 
+                        @Html.TextBoxFor(a => a.Name, new { @class = "form-control", placeholder = "Kitap İsmi" })
+                    </div>
+                    <div class="form-group">Ücreti: 
+                        @Html.TextBoxFor(a => a.Price, new { type = "number", @class = "form-control", placeholder = "0.00" })
+                    </div>
+                    <div class="form-group">Sayfa sayısı
+                        @Html.TextBoxFor(a => a.NumberOfPages, new { type = "number", @class = "form-control", placeholder = "Sayfa Sayısı" })
+                    </div>
+                    <div class="form-group">Kitap adedi
+                        @Html.TextBoxFor(a => a.Count, new { type = "number", @class = "form-control", placeholder = "Adet" })
+                    </div>
+                    <div class="custom-file mb-3">Kitap resmi
+                        <input type="file" class="custom-file-input" id="customFile" name="bookImage">
+                        <label class="custom-file-label" for="customFile">Resim Yükle</label>
+                    </div>
+                    <div class="form-group">Açıklama
+                        @Html.TextAreaFor(a => a.Description, new { @class = "form-control", placeholder = "Açıklama..." })
+                    </div>
+                    <div class="form-group">Yaın yılı
+                        @Html.TextBoxFor(a => a.YearOfPrinting, new { type = "date", @class = "form-control" })
+                    </div>
+                    <div class="form-group">Yayınevi: 
+                        <select class="form-control form-control-sm" name="publishingHouseID">
+                            @foreach (PublishingHouse item in ViewBag.publishingHouses)
+                            {
+                                <option value="@item.ID">@item.CompanyName</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group">Yazar: 
+                        <select class="form-control form-control-sm" name="authorID">
+                            @foreach (Author item in ViewBag.authors)
+                            {
+                                <option value="@item.ID">@item.FirstName @item.LastName</option>
+                            }
+
+                        </select>
+                    </div>
+                    <div class="form-group"> Kategori: 
+                        <select class="form-control form-control-sm" id="category" name="categoryID">
+                            @foreach (Category item in categories)
+                            {
+                                <option value="@item.ID">@item.Name</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group"> Alt Kategori:
+                        <select class="form-control form-control-sm" id="subCategory" name="subCategoryID">
+                            <option>Alt Kategori</option>
+                        </select>
+                    </div>
+                    <div class="form-group">Dil: 
+                        <select class="form-control form-control-sm" name="languageID">
+                            @foreach (Language item in ViewBag.languages)
+                            {
+                                <option value="@item.ID">@item.Name</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-outline-secondary">Kaydet</button>
+                    </div>
+                </form>
+                @if (ViewBag.result !=null)
+                {
+                    <script>alert("@ViewBag.result")</script>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ============================================================== -->
+<!-- end basic form  -->
+@section scripts{
+    <script type="text/javascript">
+
+        $("#category").change(function () {
+            var categoryID = $("#category").val();
+            $("#subCategory").empty();
+            $("#subCategory").append('<option>Alt Kategori</option>');
+
+            $.ajax({
+                url: "/Category/GetSubCategoryByCategoryID/" + categoryID,
+                type: "POST",
+                data: { "id": categoryID },
+                dataType: "json",
+                contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+                success: function (resp) {
+                    if (resp != null) {
+                        $("#subCategory").empty();
+                        $.each(resp, function (key, value) {
+                            $("#subCategory").append('<option value=' + value.Value + '>' + value.Text + '</option>');
+                        });
+                    } else {
+                        alert("veri gelmedi");
+                    }
+                },
+                error: function (err) {
+                    alert("Bir Hata Oluştu!");
+                    console.log(err);
+                }
+            });
+        });
+
+        //$("#StartCity").change(function () {
+        //    var cityID = $("#StartCity").val();
+        //    $("#StartDistrict").append('<option>İlçe</option>');
+        //    $("#StartDistrict").empty();
+
+        //    $.ajax({
+        //        url: "/Location/GetDistrictByCity/" + cityID,
+        //        type: "POST",
+        //        data: { "id": cityID },
+        //        dataType: "json",
+        //        contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+        //        success: function (resp) {
+        //            if (resp != null) {
+        //                $("#StartDistrict").empty();
+        //                $("#StartDistrict").append('<option>İlçe</option>');
+        //                $.each(resp, function (key, value) {
+        //                    $("#StartDistrict").append('<option value=' + value.Value + '>' + value.Text + '</option>');
+        //                });
+        //            } else {
+        //                alert("veri gelmedi");
+        //            }
+        //        },
+        //        error: function (err) {
+        //            alert("Bir Hata Oluştu!");
+        //            console.log(err);
+        //        }
+        //    });
+        //});
+        </script>
+}

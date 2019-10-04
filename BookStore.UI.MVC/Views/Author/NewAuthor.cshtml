@@ -1,0 +1,44 @@
+﻿@using BookStore.Model.Models
+@model Author
+@{
+    ViewBag.Title = "NewAuthor";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="card">
+            <h5 class="card-header">Yeni Yazar</h5>
+            <div class="card-body">
+                <form method="post" action="/Author/NewAuthor" enctype="multipart/form-data">
+                    @Html.AntiForgeryToken()
+                    <div class="form-group">
+                        İsim :
+                        @Html.TextBoxFor(a=>a.FirstName, new { @class = "form-control", placeholder = "İsim" })
+                    </div>
+                    <div class="form-group">
+                        Soyisim :
+                        @Html.TextBoxFor(a => a.LastName, new { @class = "form-control", placeholder = "Soyisim" })
+                    </div>
+                    <div class="form-group">
+                        Biyografi
+                        @Html.TextAreaFor(a => a.Detail, new { @class = "form-control", placeholder = "Biyografi" })
+                    </div>
+                    <div class="custom-file mb-3">
+                        Kitap resmi
+                        <input type="file" class="custom-file-input" id="customFile" name="authorImage">
+                        <label class="custom-file-label" for="customFile">Resim Yükle</label>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-outline-secondary">Kaydet</button>
+                    </div>
+                </form>
+                @if (ViewBag.result != null)
+                {
+                    <script>alert("@ViewBag.result")</script>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+

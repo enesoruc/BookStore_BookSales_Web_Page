@@ -1,0 +1,24 @@
+﻿*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+/****************************************
+  IMPORTANT 
+*****************************************/
+
+.scrollTop {
+    position: fixed;
+    right: 2%;
+    bottom: 10px;
+    /*background-color: #BE3F48;*/
+    padding: 15px;
+    opacity: 0;
+    transition: all 0.4s ease-in-out 0s;
+    background-image: url('../img/scroll-top.png');
+}
+
+    .scrollTop img {
+        width: 40px;
+        height: 30px;
+    }

@@ -1,0 +1,75 @@
+﻿@using BookStore.Model.Models
+@model List<Book>
+@{
+    ViewBag.Title = "ListAll";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!-- ============================================================== -->
+<div class="row">
+    <!-- grid column -->
+    @foreach (Book item in Model)
+    {
+        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
+            <!-- .card -->
+            <div class="card card-figure">
+                <!-- .card-figure -->
+                <figure class="figure">
+                    <!-- .figure-img -->
+                    <div class="figure-img">
+                        <img class="img-fluid" src="@item.ImagePath" alt="@item.Name" style="width:100%;height:150px">
+                        <div class="figure-tools">
+                            <a href="#" class="tile tile-circle tile-sm mr-auto">
+                                <span class="oi-data-transfer-download"></span>
+                            </a>
+                            <span class="badge badge-primary">@item.SubCategory.Category.Name</span>
+                        </div>
+                        <div class="figure-action">
+                            <a href="/Book/BookDetail/@item.ID" class="btn btn-block btn-sm btn-primary">Detayları Görüntüle</a>
+                        </div>
+                    </div>
+                    <!-- /.figure-img -->
+                    <!-- .figure-caption -->
+                    <figcaption class="figure-caption" style="text-align:center">
+                        <input type="button" onclick="location.href='@Url.Action("BookUpdate","Book",new {item.ID})'"  class="btn btn-outline-warning" value="Düzenle"/>
+                        <button class="btn btn-outline-danger btnDelete" id="btnDelete" data-bookID="@item.ID">Sil</button>
+                    </figcaption>
+                    <!-- /.figure-caption -->
+                </figure>
+                <!-- /.card-figure -->
+                @if (ViewBag.result != null)
+                {
+                    <script>
+                        alert("@ViewBag.result")
+                    </script>
+                }
+
+            </div>
+            <!-- /.card -->
+        </div>
+        <!-- /grid column -->
+    }
+</div>
+<!-- ============================================================== -->
+
+@section scripts{
+    <script>
+        $(".btnDelete").click(function () {
+            var bookID = $(this).attr("data-bookID");
+
+            $.ajax({
+                url: "/Book/Delete/" + bookID,
+                type: "GET",
+                success: function (response) {
+                    if (response == "ok") {
+                        alert("Ürün Silindi");
+                        window.location.reload();
+                    }
+                    else {
+                        alert("Hata");
+                    }
+                }
+            });
+        });
+    </script>
+}

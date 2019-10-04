@@ -1,0 +1,1039 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9E474822-D741-4EDF-B455-EE3D5A92F8BA}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BookStore.UI.MVC</RootNamespace>
+    <AssemblyName>BookStore.UI.MVC</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>3.1</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.3.0-preview8-19405-04\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.3.0-preview8-19405-04\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.2.0.0\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Common, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Web.Common.3.2.0.0\lib\net45-full\Ninject.Web.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Mvc, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.MVC4.3.2.1.0\lib\net45-full\Ninject.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="admin\layout.html" />
+    <Content Include="BookStore\css\bootstrap.css" />
+    <Content Include="BookStore\css\bootstrap.min.css" />
+    <Content Include="BookStore\css\bootstrap.min2.css" />
+    <Content Include="BookStore\css\hoverMenu.css" />
+    <Content Include="BookStore\css\megaMenu.css" />
+    <Content Include="BookStore\css\miniSlider.css" />
+    <Content Include="BookStore\css\registerStyle.css" />
+    <Content Include="BookStore\css\scrollBar.css" />
+    <Content Include="BookStore\css\Slider.css" />
+    <Content Include="BookStore\css\sourcesanspro-font.css" />
+    <Content Include="BookStore\img\agustos_kampanya_banner.png" />
+    <Content Include="BookStore\img\indigo_modern_klasikler_banner.png" />
+    <Content Include="BookStore\img\scroll-top.png" />
+    <Content Include="BookStore\js\bootstrap.min.js" />
+    <Content Include="BookStore\js\jssor.slider-27.5.0.min.js" />
+    <Content Include="BookStore\js\megaMenu.js" />
+    <Content Include="BookStore\js\scrollBar.js" />
+    <Content Include="BookStore\js\Slider.js" />
+    <Content Include="admin\assets\images\avatar-1.jpg" />
+    <Content Include="admin\assets\images\avatar-2.jpg" />
+    <Content Include="admin\assets\images\avatar-3.jpg" />
+    <Content Include="admin\assets\images\avatar-4.jpg" />
+    <Content Include="admin\assets\images\avatar-5.jpg" />
+    <Content Include="admin\assets\images\bitbucket.png" />
+    <Content Include="admin\assets\images\card-img-1.jpg" />
+    <Content Include="admin\assets\images\card-img-2.jpg" />
+    <Content Include="admin\assets\images\card-img-3.jpg" />
+    <Content Include="admin\assets\images\card-img.jpg" />
+    <Content Include="admin\assets\images\down-arrow.png" />
+    <Content Include="admin\assets\images\drag-indicator.png" />
+    <Content Include="admin\assets\images\dribbble.png" />
+    <Content Include="admin\assets\images\dropbox.png" />
+    <Content Include="admin\assets\images\eco-product-img-1.png" />
+    <Content Include="admin\assets\images\eco-product-img-2.png" />
+    <Content Include="admin\assets\images\eco-product-img-3.png" />
+    <Content Include="admin\assets\images\eco-product-img-4.png" />
+    <Content Include="admin\assets\images\eco-slider-img-1.png" />
+    <Content Include="admin\assets\images\eco-slider-img-2.png" />
+    <Content Include="admin\assets\images\eco-slider-img-3.png" />
+    <Content Include="admin\assets\images\error-img.png" />
+    <Content Include="admin\assets\images\github.png" />
+    <Content Include="admin\assets\images\loader.svg" />
+    <Content Include="admin\assets\images\logo.png" />
+    <Content Include="admin\assets\images\mail_chimp.png" />
+    <Content Include="admin\assets\images\product-pic-2.jpg" />
+    <Content Include="admin\assets\images\product-pic-3.jpg" />
+    <Content Include="admin\assets\images\product-pic-4.jpg" />
+    <Content Include="admin\assets\images\product-pic.jpg" />
+    <Content Include="admin\assets\images\slack.png" />
+    <Content Include="admin\assets\images\switch.png" />
+    <Content Include="admin\assets\libs\css\style.css" />
+    <Content Include="admin\assets\libs\js\dashboard-ecommerce.js" />
+    <Content Include="admin\assets\libs\js\dashboard-finance.js" />
+    <Content Include="admin\assets\libs\js\dashboard-influencer.js" />
+    <Content Include="admin\assets\libs\js\dashboard-sales.js" />
+    <Content Include="admin\assets\libs\js\gmaps.min.js" />
+    <Content Include="admin\assets\libs\js\google_map.js" />
+    <Content Include="admin\assets\libs\js\jvectormap.custom.js" />
+    <Content Include="admin\assets\libs\js\main-js.js" />
+    <Content Include="admin\assets\vendor\bootstrap-colorpicker\%40claviska\jquery-minicolors\jquery.minicolors.css" />
+    <Content Include="admin\assets\vendor\bootstrap-colorpicker\%40claviska\jquery-minicolors\jquery.minicolors.min.js" />
+    <Content Include="admin\assets\vendor\bootstrap-colorpicker\%40claviska\jquery-minicolors\jquery.minicolors.png" />
+    <Content Include="admin\assets\vendor\bootstrap-colorpicker\jquery-asColorPicker\dist\jquery-asColorPicker.min.js" />
+    <Content Include="admin\assets\vendor\bootstrap-colorpicker\jquery-asColor\dist\jquery-asColor.min.js" />
+    <Content Include="admin\assets\vendor\bootstrap-colorpicker\jquery-asGradient\dist\jquery-asGradient.js" />
+    <Content Include="admin\assets\vendor\bootstrap-select\css\bootstrap-select.css" />
+    <Content Include="admin\assets\vendor\bootstrap-select\js\bootstrap-select.js" />
+    <Content Include="admin\assets\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="admin\assets\vendor\bootstrap\js\bootstrap.bundle.js" />
+    <Content Include="admin\assets\vendor\charts\c3charts\c3.css" />
+    <Content Include="admin\assets\vendor\charts\c3charts\c3.min.js" />
+    <Content Include="admin\assets\vendor\charts\c3charts\C3chartjs.js" />
+    <Content Include="admin\assets\vendor\charts\c3charts\d3-5.4.0.min.js" />
+    <Content Include="admin\assets\vendor\charts\chartist-bundle\chartist-plugin-threshold.js" />
+    <Content Include="admin\assets\vendor\charts\chartist-bundle\chartist.css" />
+    <Content Include="admin\assets\vendor\charts\chartist-bundle\chartist.min.js" />
+    <Content Include="admin\assets\vendor\charts\chartist-bundle\Chartistjs.js" />
+    <Content Include="admin\assets\vendor\charts\charts-bundle\Chart.bundle.js" />
+    <Content Include="admin\assets\vendor\charts\charts-bundle\chartjs.js" />
+    <Content Include="admin\assets\vendor\charts\morris-bundle\morris.css" />
+    <Content Include="admin\assets\vendor\charts\morris-bundle\morris.js" />
+    <Content Include="admin\assets\vendor\charts\morris-bundle\morrisjs.html" />
+    <Content Include="admin\assets\vendor\charts\morris-bundle\Morrisjs.js" />
+    <Content Include="admin\assets\vendor\charts\morris-bundle\raphael.min.js" />
+    <Content Include="admin\assets\vendor\charts\sparkline\jquery.sparkline.js" />
+    <Content Include="admin\assets\vendor\charts\sparkline\spark-js.js" />
+    <Content Include="admin\assets\vendor\cropper\dist\cropper-int.js" />
+    <Content Include="admin\assets\vendor\cropper\dist\cropper.min.css" />
+    <Content Include="admin\assets\vendor\cropper\dist\cropper.min.js" />
+    <Content Include="admin\assets\vendor\custom-js\jquery.multi-select.html" />
+    <Content Include="admin\assets\vendor\datatables\css\buttons.bootstrap4.css" />
+    <Content Include="admin\assets\vendor\datatables\css\dataTables.bootstrap4.css" />
+    <Content Include="admin\assets\vendor\datatables\css\fixedHeader.bootstrap4.css" />
+    <Content Include="admin\assets\vendor\datatables\css\select.bootstrap4.css" />
+    <Content Include="admin\assets\vendor\datatables\js\buttons.bootstrap4.min.js" />
+    <Content Include="admin\assets\vendor\datatables\js\data-table.js" />
+    <Content Include="admin\assets\vendor\datatables\js\dataTables.bootstrap4.min.js" />
+    <Content Include="admin\assets\vendor\datepicker\datepicker.js" />
+    <Content Include="admin\assets\vendor\datepicker\moment.js" />
+    <Content Include="admin\assets\vendor\datepicker\tempusdominus-bootstrap-4.css" />
+    <Content Include="admin\assets\vendor\datepicker\tempusdominus-bootstrap-4.js" />
+    <Content Include="admin\assets\vendor\daterangepicker\daterangepicker.css" />
+    <Content Include="admin\assets\vendor\dropzone\dropzone.js" />
+    <Content Include="admin\assets\vendor\fonts\circular-std\style.css" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flag-icon.min.css" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\ad.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\ae.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\af.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\ag.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\ai.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\al.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\am.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\ao.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\aq.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\ar.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\as.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\at.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\au.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\aw.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\ax.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\az.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\ba.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\bb.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\bd.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\be.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\bf.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\bg.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\bh.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\bi.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\bj.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\bl.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\bm.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\bn.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\bo.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\bq.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\br.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\bs.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\bt.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\bv.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\bw.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\by.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\bz.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\ca.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\cc.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\cd.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\cf.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\cg.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\ch.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\ci.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\ck.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\cl.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\cm.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\cn.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\co.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\cr.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\cu.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\cv.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\cw.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\cx.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\cy.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\cz.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\de.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\dj.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\dk.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\dm.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\do.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\dz.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\ec.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\ee.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\eg.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\eh.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\er.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\es.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\et.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\fi.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\fj.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\fk.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\fm.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\fo.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\fr.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\ga.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\gb.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\gd.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\ge.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\gf.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\gg.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\gh.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\gi.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\gl.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\gm.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\gn.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\gp.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\gq.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\gr.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\gs.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\gt.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\gu.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\gw.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\gy.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\hk.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\hm.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\hn.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\hr.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\ht.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\hu.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\id.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\ie.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\il.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\im.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\in.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\io.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\iq.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\ir.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\is.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\it.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\je.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\jm.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\jo.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\jp.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\ke.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\kg.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\kh.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\ki.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\km.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\kn.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\kp.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\kr.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\kw.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\ky.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\kz.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\la.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\lb.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\lc.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\li.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\lk.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\lr.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\ls.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\lt.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\lu.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\lv.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\ly.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\ma.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\mc.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\md.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\me.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\mf.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\mg.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\mh.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\mk.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\ml.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\mm.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\mn.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\mo.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\mp.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\mq.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\mr.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\ms.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\mt.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\mu.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\mv.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\mw.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\mx.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\my.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\mz.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\na.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\nc.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\ne.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\nf.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\ng.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\ni.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\nl.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\no.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\np.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\nr.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\nu.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\nz.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\om.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\pa.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\pe.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\pf.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\pg.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\ph.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\pk.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\pl.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\pm.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\pn.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\pr.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\ps.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\pt.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\pw.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\py.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\qa.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\re.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\ro.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\rs.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\ru.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\rw.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\sa.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\sb.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\sc.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\sd.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\se.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\sg.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\sh.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\si.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\sj.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\sk.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\sl.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\sm.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\sn.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\so.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\sr.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\ss.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\st.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\sv.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\sx.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\sy.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\sz.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\tc.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\td.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\tf.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\tg.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\th.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\tj.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\tk.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\tl.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\tm.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\tn.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\to.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\tr.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\tt.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\tv.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\tw.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\tz.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\ua.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\ug.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\um.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\us.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\uy.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\uz.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\va.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\vc.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\ve.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\vg.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\vi.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\vn.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\vu.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\wf.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\ws.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\ye.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\yt.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\za.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\zm.svg" />
+    <Content Include="admin\assets\vendor\fonts\flag-icon-css\flags\zw.svg" />
+    <Content Include="admin\assets\vendor\fonts\fontawesome\css\fontawesome-all.css" />
+    <Content Include="admin\assets\vendor\fonts\fontawesome\webfonts\fa-brands-400.html" />
+    <Content Include="admin\assets\vendor\fonts\fontawesome\webfonts\fa-brands-400.svg" />
+    <Content Include="admin\assets\vendor\fonts\fontawesome\webfonts\fa-regular-400.html" />
+    <Content Include="admin\assets\vendor\fonts\fontawesome\webfonts\fa-regular-400.svg" />
+    <Content Include="admin\assets\vendor\fonts\fontawesome\webfonts\fa-solid-900.html" />
+    <Content Include="admin\assets\vendor\fonts\fontawesome\webfonts\fa-solid-900.svg" />
+    <Content Include="admin\assets\vendor\fonts\material-design-iconic-font\css\materialdesignicons.min.css" />
+    <Content Include="admin\assets\vendor\fonts\material-design-iconic-font\fonts\materialdesignicons-webfontdc99.html" />
+    <Content Include="admin\assets\vendor\fonts\material-design-iconic-font\fonts\materialdesignicons-webfontdc99.svg" />
+    <Content Include="admin\assets\vendor\fonts\simple-line-icons\css\simple-line-icons.css" />
+    <Content Include="admin\assets\vendor\fonts\simple-line-icons\fonts\Simple-Line-Icons4c82.html" />
+    <Content Include="admin\assets\vendor\fonts\simple-line-icons\fonts\Simple-Line-Icons4c82.svg" />
+    <Content Include="admin\assets\vendor\fonts\themify-icons\fonts\themify9f24.svg" />
+    <Content Include="admin\assets\vendor\fonts\themify-icons\themify-icons.css" />
+    <Content Include="admin\assets\vendor\fonts\weather-icons\css\weather-icons.min.css" />
+    <Content Include="admin\assets\vendor\full-calendar\css\fullcalendar.css" />
+    <Content Include="admin\assets\vendor\full-calendar\css\fullcalendar.print.css" />
+    <Content Include="admin\assets\vendor\full-calendar\js\calendar.js" />
+    <Content Include="admin\assets\vendor\full-calendar\js\fullcalendar.js" />
+    <Content Include="admin\assets\vendor\full-calendar\js\jquery-ui.min.js" />
+    <Content Include="admin\assets\vendor\full-calendar\js\moment.min.js" />
+    <Content Include="admin\assets\vendor\gauge\gauge.js" />
+    <Content Include="admin\assets\vendor\gauge\gauge.min.js" />
+    <Content Include="admin\assets\vendor\inputmask\css\inputmask.css" />
+    <Content Include="admin\assets\vendor\inputmask\js\jquery.inputmask.bundle.js" />
+    <Content Include="admin\assets\vendor\jquery\jquery-3.3.1.min.js" />
+    <Content Include="admin\assets\vendor\jvectormap\jquery-jvectormap-2.0.2.css" />
+    <Content Include="admin\assets\vendor\jvectormap\jquery-jvectormap-2.0.2.min.js" />
+    <Content Include="admin\assets\vendor\jvectormap\jquery-jvectormap-au-mill.js" />
+    <Content Include="admin\assets\vendor\jvectormap\jquery-jvectormap-in-mill.js" />
+    <Content Include="admin\assets\vendor\jvectormap\jquery-jvectormap-uk-mill-en.js" />
+    <Content Include="admin\assets\vendor\jvectormap\jquery-jvectormap-us-aea-en.js" />
+    <Content Include="admin\assets\vendor\jvectormap\jquery-jvectormap-world-mill-en.js" />
+    <Content Include="admin\assets\vendor\multi-select\css\multi-select.css" />
+    <Content Include="admin\assets\vendor\multi-select\js\jquery.multi-select.js" />
+    <Content Include="admin\assets\vendor\parsley\parsley.js" />
+    <Content Include="admin\assets\vendor\select2\css\select2.css" />
+    <Content Include="admin\assets\vendor\select2\js\select2.min.js" />
+    <Content Include="admin\assets\vendor\shortable-nestable\jquery.nestable.js" />
+    <Content Include="admin\assets\vendor\shortable-nestable\sort-nest.js" />
+    <Content Include="admin\assets\vendor\shortable-nestable\Sortable.min.js" />
+    <Content Include="admin\assets\vendor\slimscroll\jquery.slimscroll.js" />
+    <Content Include="admin\assets\vendor\summernote\css\summernote-bs4.css" />
+    <Content Include="admin\assets\vendor\summernote\js\summernote-bs4.js" />
+    <Content Include="admin\assets\vendor\timeline\img\cd-icon-location.svg" />
+    <Content Include="admin\assets\vendor\timeline\img\cd-icon-movie.svg" />
+    <Content Include="admin\assets\vendor\timeline\img\cd-icon-picture.svg" />
+    <Content Include="admin\assets\vendor\timeline\js\main.js" />
+    <Content Include="admin\assets\vendor\vector-map\jqvmap.css" />
+    <Content Include="admin\dashboard-finance.html" />
+    <Content Include="admin\dashboard-influencer.html" />
+    <Content Include="admin\dashboard-sales.html" />
+    <Content Include="admin\documentation\css\32px.png" />
+    <Content Include="admin\documentation\css\bootstrap.min.css" />
+    <Content Include="admin\documentation\css\style.css" />
+    <Content Include="admin\documentation\css\throbber.gif" />
+    <Content Include="admin\documentation\css\tree-viewer.css" />
+    <Content Include="admin\documentation\img\favicon.ico" />
+    <Content Include="admin\documentation\img\logo.png" />
+    <Content Include="admin\documentation\index.html" />
+    <Content Include="admin\documentation\js\bootstrap.min.js" />
+    <Content Include="admin\documentation\js\jquery-3.1.0.min.js" />
+    <Content Include="admin\documentation\js\jstree.active.js" />
+    <Content Include="admin\documentation\js\jstree.min.js" />
+    <Content Include="admin\ecommerce-product-checkout.html" />
+    <Content Include="admin\ecommerce-product-single.html" />
+    <Content Include="admin\ecommerce-product.html" />
+    <Content Include="admin\index.html" />
+    <Content Include="admin\influencer-finder.html" />
+    <Content Include="admin\influencer-profile.html" />
+    <Content Include="admin\pages\404-page.html" />
+    <Content Include="admin\pages\accordions.html" />
+    <Content Include="admin\pages\blank-page-header.html" />
+    <Content Include="admin\pages\blank-page.html" />
+    <Content Include="admin\pages\bootstrap-select.html" />
+    <Content Include="admin\pages\calendar.html" />
+    <Content Include="admin\pages\cards.html" />
+    <Content Include="admin\pages\carousel.html" />
+    <Content Include="admin\pages\chart-c3.html" />
+    <Content Include="admin\pages\chart-chartist.html" />
+    <Content Include="admin\pages\chart-charts.html" />
+    <Content Include="admin\pages\chart-gauge.html" />
+    <Content Include="admin\pages\chart-morris.html" />
+    <Content Include="admin\pages\chart-sparkline.html" />
+    <Content Include="admin\pages\color-picker.html" />
+    <Content Include="admin\pages\cropped.html" />
+    <Content Include="admin\pages\cropper-image.html" />
+    <Content Include="admin\pages\data-tables.html" />
+    <Content Include="admin\pages\datepicker.html" />
+    <Content Include="admin\pages\email-compose.html" />
+    <Content Include="admin\pages\email-details.html" />
+    <Content Include="admin\pages\forgot-password.html" />
+    <Content Include="admin\pages\form-elements.html" />
+    <Content Include="admin\pages\form-validation.html" />
+    <Content Include="admin\pages\general-table.html" />
+    <Content Include="admin\pages\general.html" />
+    <Content Include="admin\pages\icon-flag.html" />
+    <Content Include="admin\pages\icon-fontawesome.html" />
+    <Content Include="admin\pages\icon-material.html" />
+    <Content Include="admin\pages\icon-simple-lineicon.html" />
+    <Content Include="admin\pages\icon-themify.html" />
+    <Content Include="admin\pages\icon-weather.html" />
+    <Content Include="admin\pages\inbox.html" />
+    <Content Include="admin\pages\index.html" />
+    <Content Include="admin\pages\invoice.html" />
+    <Content Include="admin\pages\listgroup.html" />
+    <Content Include="admin\pages\login.html" />
+    <Content Include="admin\pages\map-google.html" />
+    <Content Include="admin\pages\map-vector.html" />
+    <Content Include="admin\pages\media-object.html" />
+    <Content Include="admin\pages\message-chat.html" />
+    <Content Include="admin\pages\multiselect.html" />
+    <Content Include="admin\pages\pages-app.html" />
+    <Content Include="admin\pages\pages-sign-up.html" />
+    <Content Include="admin\pages\pricing.html" />
+    <Content Include="admin\pages\sign-up.html" />
+    <Content Include="admin\pages\sortable-nestable-lists.html" />
+    <Content Include="admin\pages\tabs.html" />
+    <Content Include="admin\pages\timeline.html" />
+    <Content Include="admin\pages\typography.html" />
+    <Content Include="admin\pages\user-profile.html" />
+    <Content Include="admin\pages\widgets.html" />
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="BookStore\blog.html" />
+    <Content Include="BookStore\cart.html" />
+    <Content Include="BookStore\category.html" />
+    <Content Include="BookStore\checkout.html" />
+    <Content Include="BookStore\contact.html" />
+    <Content Include="BookStore\contact_process.php" />
+    <Content Include="BookStore\css\bootstrap2.css" />
+    <Content Include="BookStore\css\flaticon.css" />
+    <Content Include="BookStore\css\font-awesome.min.css" />
+    <Content Include="BookStore\css\responsive.css" />
+    <Content Include="BookStore\css\style.css" />
+    <Content Include="BookStore\css\themify-icons.css" />
+    <Content Include="BookStore\elements.html" />
+    <Content Include="BookStore\fonts\Flaticon.svg" />
+    <Content Include="BookStore\fonts\fontawesome-webfont.svg" />
+    <Content Include="BookStore\fonts\themify.svg" />
+    <Content Include="BookStore\img\b1.jpg" />
+    <Content Include="BookStore\img\b2.jpg" />
+    <Content Include="BookStore\img\b3.jpg" />
+    <Content Include="BookStore\img\banner\banner-bg.jpg" />
+    <Content Include="BookStore\img\blog\add.jpg" />
+    <Content Include="BookStore\img\blog\author.png" />
+    <Content Include="BookStore\img\blog\blog1.png" />
+    <Content Include="BookStore\img\blog\blog2.png" />
+    <Content Include="BookStore\img\blog\blog3.png" />
+    <Content Include="BookStore\img\blog\c1.png" />
+    <Content Include="BookStore\img\blog\c2.png" />
+    <Content Include="BookStore\img\blog\c3.png" />
+    <Content Include="BookStore\img\blog\cat-post\cat-post-1.jpg" />
+    <Content Include="BookStore\img\blog\cat-post\cat-post-2.jpg" />
+    <Content Include="BookStore\img\blog\cat-post\cat-post-3.jpg" />
+    <Content Include="BookStore\img\blog\causes\causes-1.jpg" />
+    <Content Include="BookStore\img\blog\causes\causes-2.jpg" />
+    <Content Include="BookStore\img\blog\causes\causes-3.jpg" />
+    <Content Include="BookStore\img\blog\feature-img1.jpg" />
+    <Content Include="BookStore\img\blog\main-blog\m-blog-1.jpg" />
+    <Content Include="BookStore\img\blog\main-blog\m-blog-2.jpg" />
+    <Content Include="BookStore\img\blog\main-blog\m-blog-3.jpg" />
+    <Content Include="BookStore\img\blog\main-blog\m-blog-4.jpg" />
+    <Content Include="BookStore\img\blog\main-blog\m-blog-5.jpg" />
+    <Content Include="BookStore\img\blog\next.jpg" />
+    <Content Include="BookStore\img\blog\popular-post\post1.jpg" />
+    <Content Include="BookStore\img\blog\popular-post\post2.jpg" />
+    <Content Include="BookStore\img\blog\popular-post\post3.jpg" />
+    <Content Include="BookStore\img\blog\popular-post\post4.jpg" />
+    <Content Include="BookStore\img\blog\post-img1.jpg" />
+    <Content Include="BookStore\img\blog\post-img2.jpg" />
+    <Content Include="BookStore\img\blog\prev.jpg" />
+    <Content Include="BookStore\img\breadcrumb\checkout-bg.jpg" />
+    <Content Include="BookStore\img\elements\a.jpg" />
+    <Content Include="BookStore\img\elements\a2.jpg" />
+    <Content Include="BookStore\img\elements\d.jpg" />
+    <Content Include="BookStore\img\elements\disabled-check.png" />
+    <Content Include="BookStore\img\elements\disabled-radio.png" />
+    <Content Include="BookStore\img\elements\f1.jpg" />
+    <Content Include="BookStore\img\elements\f2.jpg" />
+    <Content Include="BookStore\img\elements\f3.jpg" />
+    <Content Include="BookStore\img\elements\f4.jpg" />
+    <Content Include="BookStore\img\elements\f5.jpg" />
+    <Content Include="BookStore\img\elements\f6.jpg" />
+    <Content Include="BookStore\img\elements\f7.jpg" />
+    <Content Include="BookStore\img\elements\f8.jpg" />
+    <Content Include="BookStore\img\elements\g1.jpg" />
+    <Content Include="BookStore\img\elements\g2.jpg" />
+    <Content Include="BookStore\img\elements\g3.jpg" />
+    <Content Include="BookStore\img\elements\g4.jpg" />
+    <Content Include="BookStore\img\elements\g5.jpg" />
+    <Content Include="BookStore\img\elements\g6.jpg" />
+    <Content Include="BookStore\img\elements\g7.jpg" />
+    <Content Include="BookStore\img\elements\g8.jpg" />
+    <Content Include="BookStore\img\elements\primary-check.png" />
+    <Content Include="BookStore\img\elements\primary-radio.png" />
+    <Content Include="BookStore\img\elements\success-check.png" />
+    <Content Include="BookStore\img\elements\success-radio.png" />
+    <Content Include="BookStore\img\elements\user1.png" />
+    <Content Include="BookStore\img\elements\user2.png" />
+    <Content Include="BookStore\img\fevicon.png" />
+    <Content Include="BookStore\img\instagram\i1.jpg" />
+    <Content Include="BookStore\img\instagram\i2.jpg" />
+    <Content Include="BookStore\img\instagram\i3.jpg" />
+    <Content Include="BookStore\img\instagram\i4.jpg" />
+    <Content Include="BookStore\img\instagram\i5.jpg" />
+    <Content Include="BookStore\img\instagram\i6.jpg" />
+    <Content Include="BookStore\img\instagram\i7.jpg" />
+    <Content Include="BookStore\img\instagram\i8.jpg" />
+    <Content Include="BookStore\img\instagram\widget-i1.png" />
+    <Content Include="BookStore\img\instagram\widget-i2.png" />
+    <Content Include="BookStore\img\instagram\widget-i3.png" />
+    <Content Include="BookStore\img\instagram\widget-i4.png" />
+    <Content Include="BookStore\img\instagram\widget-i5.png" />
+    <Content Include="BookStore\img\instagram\widget-i6.png" />
+    <Content Include="BookStore\img\login.jpg" />
+    <Content Include="BookStore\img\logo.png" />
+    <Content Include="BookStore\img\offer-bg.png" />
+    <Content Include="BookStore\img\product\feature-product\f-p-1.jpg" />
+    <Content Include="BookStore\img\product\feature-product\f-p-2.jpg" />
+    <Content Include="BookStore\img\product\feature-product\f-p-3.jpg" />
+    <Content Include="BookStore\img\product\inspired-product\i1.jpg" />
+    <Content Include="BookStore\img\product\inspired-product\i2.jpg" />
+    <Content Include="BookStore\img\product\inspired-product\i3.jpg" />
+    <Content Include="BookStore\img\product\inspired-product\i4.jpg" />
+    <Content Include="BookStore\img\product\inspired-product\i5.jpg" />
+    <Content Include="BookStore\img\product\inspired-product\i6.jpg" />
+    <Content Include="BookStore\img\product\inspired-product\i7.jpg" />
+    <Content Include="BookStore\img\product\inspired-product\i8.jpg" />
+    <Content Include="BookStore\img\product\most-product\m-product-1.jpg" />
+    <Content Include="BookStore\img\product\most-product\m-product-10.jpg" />
+    <Content Include="BookStore\img\product\most-product\m-product-11.jpg" />
+    <Content Include="BookStore\img\product\most-product\m-product-12.jpg" />
+    <Content Include="BookStore\img\product\most-product\m-product-2.jpg" />
+    <Content Include="BookStore\img\product\most-product\m-product-3.jpg" />
+    <Content Include="BookStore\img\product\most-product\m-product-4.jpg" />
+    <Content Include="BookStore\img\product\most-product\m-product-5.jpg" />
+    <Content Include="BookStore\img\product\most-product\m-product-6.jpg" />
+    <Content Include="BookStore\img\product\most-product\m-product-7.jpg" />
+    <Content Include="BookStore\img\product\most-product\m-product-8.jpg" />
+    <Content Include="BookStore\img\product\most-product\m-product-9.jpg" />
+    <Content Include="BookStore\img\product\new-product\n1.jpg" />
+    <Content Include="BookStore\img\product\new-product\n2.jpg" />
+    <Content Include="BookStore\img\product\new-product\n3.jpg" />
+    <Content Include="BookStore\img\product\new-product\n4.jpg" />
+    <Content Include="BookStore\img\product\new-product\new-product1.png" />
+    <Content Include="BookStore\img\product\single-product\card.jpg" />
+    <Content Include="BookStore\img\product\single-product\cart-1.jpg" />
+    <Content Include="BookStore\img\product\single-product\review-1.png" />
+    <Content Include="BookStore\img\product\single-product\review-2.png" />
+    <Content Include="BookStore\img\product\single-product\review-3.png" />
+    <Content Include="BookStore\img\product\single-product\s-product-1.jpg" />
+    <Content Include="BookStore\img\product\single-product\s-product-s-2.jpg" />
+    <Content Include="BookStore\img\product\single-product\s-product-s-3.jpg" />
+    <Content Include="BookStore\img\product\single-product\s-product-s-4.jpg" />
+    <Content Include="BookStore\index.html" />
+    <Content Include="BookStore\js\bootstrap.min2.js" />
+    <Content Include="BookStore\js\contact.js" />
+    <Content Include="BookStore\js\custom.js" />
+    <Content Include="BookStore\js\gmaps.min.js" />
+    <Content Include="BookStore\js\jquery-3.2.1.min.js" />
+    <Content Include="BookStore\js\jquery.ajaxchimp.min.js" />
+    <Content Include="BookStore\js\jquery.form.js" />
+    <Content Include="BookStore\js\jquery.validate.min.js" />
+    <Content Include="BookStore\js\mail-script.js" />
+    <Content Include="BookStore\js\popper.js" />
+    <Content Include="BookStore\js\stellar.js" />
+    <Content Include="BookStore\js\theme.js" />
+    <Content Include="BookStore\single-blog.html" />
+    <Content Include="BookStore\single-product.html" />
+    <Content Include="BookStore\tracking.html" />
+    <Content Include="BookStore\vendors\animate-css\animate.css" />
+    <Content Include="BookStore\vendors\animate-css\wow.min.js" />
+    <Content Include="BookStore\vendors\bootstrap-datepicker\bootstrap-datetimepicker.min.css" />
+    <Content Include="BookStore\vendors\bootstrap-datepicker\bootstrap-datetimepicker.min.js" />
+    <Content Include="BookStore\vendors\bootstrap-datepicker\bootstrap-select.css" />
+    <Content Include="BookStore\vendors\bootstrap-datepicker\bootstrap-select.js" />
+    <Content Include="BookStore\vendors\counter-up\jquery.counterup.js" />
+    <Content Include="BookStore\vendors\counter-up\jquery.waypoints.min.js" />
+    <Content Include="BookStore\vendors\flipclock\timer.js" />
+    <Content Include="BookStore\vendors\isotope\imagesloaded.pkgd.min.js" />
+    <Content Include="BookStore\vendors\isotope\isotope-min.js" />
+    <Content Include="BookStore\vendors\jquery-ui\jquery-ui.css" />
+    <Content Include="BookStore\vendors\jquery-ui\jquery-ui.js" />
+    <Content Include="BookStore\vendors\lightbox\simpleLightbox.css" />
+    <Content Include="BookStore\vendors\lightbox\simpleLightbox.min.js" />
+    <Content Include="BookStore\vendors\linericon\fonts\Linearicons-Free.svg" />
+    <Content Include="BookStore\vendors\linericon\style.css" />
+    <Content Include="BookStore\vendors\nice-select\css\nice-select.css" />
+    <Content Include="BookStore\vendors\nice-select\css\style.css" />
+    <Content Include="BookStore\vendors\nice-select\js\jquery.nice-select.js" />
+    <Content Include="BookStore\vendors\nice-select\js\jquery.nice-select.min.js" />
+    <Content Include="BookStore\vendors\owl-carousel\assets\ajax-loader.gif" />
+    <Content Include="BookStore\vendors\owl-carousel\assets\animated.css" />
+    <Content Include="BookStore\vendors\owl-carousel\assets\owl.carousel.css" />
+    <Content Include="BookStore\vendors\owl-carousel\owl.carousel.min.css" />
+    <Content Include="BookStore\vendors\owl-carousel\owl.carousel.min.js" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\esm\popper-utils.js" />
+    <Content Include="Scripts\esm\popper-utils.min.js" />
+    <Content Include="Scripts\esm\popper.js" />
+    <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\esm\popper.min.js.map" />
+    <Content Include="Scripts\esm\popper.js.map" />
+    <Content Include="Scripts\esm\popper-utils.min.js.map" />
+    <Content Include="Scripts\esm\popper-utils.js.map" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="BookStore\.DS_Store" />
+    <Content Include="BookStore\css\style.css.map" />
+    <Content Include="BookStore\css\style.map" />
+    <Content Include="BookStore\fonts\Flaticon.eot" />
+    <Content Include="BookStore\fonts\Flaticon.ttf" />
+    <Content Include="BookStore\fonts\Flaticon.woff" />
+    <Content Include="BookStore\fonts\Flaticon.woff2" />
+    <Content Include="BookStore\fonts\fontawesome-webfont.eot" />
+    <Content Include="BookStore\fonts\fontawesome-webfont.ttf" />
+    <Content Include="BookStore\fonts\fontawesome-webfont.woff" />
+    <Content Include="BookStore\fonts\fontawesome-webfont.woff2" />
+    <Content Include="BookStore\fonts\FontAwesome.otf" />
+    <Content Include="BookStore\fonts\themify.eot" />
+    <Content Include="BookStore\fonts\themify.ttf" />
+    <Content Include="BookStore\fonts\themify.woff" />
+    <Content Include="BookStore\img\.DS_Store" />
+    <Content Include="BookStore\img\blog\.DS_Store" />
+    <Content Include="BookStore\img\elements\_DS_Store" />
+    <Content Include="BookStore\img\product\.DS_Store" />
+    <Content Include="BookStore\prepros-6.config" />
+    <Content Include="BookStore\scss\style.scss" />
+    <Content Include="BookStore\scss\_blog.scss" />
+    <Content Include="BookStore\scss\_breadcrumb.scss" />
+    <Content Include="BookStore\scss\_button.scss" />
+    <Content Include="BookStore\scss\_clients.scss" />
+    <Content Include="BookStore\scss\_contact.scss" />
+    <Content Include="BookStore\scss\_elements.scss" />
+    <Content Include="BookStore\scss\_feature.scss" />
+    <Content Include="BookStore\scss\_footer.scss" />
+    <Content Include="BookStore\scss\_header.scss" />
+    <Content Include="BookStore\scss\_offer.scss" />
+    <Content Include="BookStore\scss\_predefine.scss" />
+    <Content Include="BookStore\scss\_product.scss" />
+    <Content Include="BookStore\scss\_reset.scss" />
+    <Content Include="BookStore\scss\_variables.scss" />
+    <Content Include="BookStore\vendors\linericon\fonts\Linearicons-Free.eot" />
+    <Content Include="BookStore\vendors\linericon\fonts\Linearicons-Free.ttf" />
+    <Content Include="BookStore\vendors\linericon\fonts\Linearicons-Free.woff" />
+    <Content Include="BookStore\vendors\linericon\fonts\Linearicons-Free.woff2" />
+    <Content Include="BookStore\css\bootstrap.css.map" />
+    <Content Include="BookStore\css\bootstrap.min.css.map" />
+    <Content Include="BookStore\js\bootstrap.min.js.map" />
+    <Content Include="admin\assets\vendor\fonts\circular-std\CircularStd-Black.woff" />
+    <Content Include="admin\assets\vendor\fonts\circular-std\CircularStd-BlackItalic.woff" />
+    <Content Include="admin\assets\vendor\fonts\circular-std\CircularStd-Bold.woff" />
+    <Content Include="admin\assets\vendor\fonts\circular-std\CircularStd-BoldItalic.woff" />
+    <Content Include="admin\assets\vendor\fonts\circular-std\CircularStd-Book.woff" />
+    <Content Include="admin\assets\vendor\fonts\circular-std\CircularStd-BookItalic.woff" />
+    <Content Include="admin\assets\vendor\fonts\circular-std\CircularStd-Medium.woff" />
+    <Content Include="admin\assets\vendor\fonts\circular-std\CircularStd-MediumItalic.woff" />
+    <Content Include="admin\assets\vendor\fonts\fontawesome\webfonts\fa-brands-400.eot" />
+    <Content Include="admin\assets\vendor\fonts\fontawesome\webfonts\fa-brands-400.ttf" />
+    <Content Include="admin\assets\vendor\fonts\fontawesome\webfonts\fa-brands-400.woff" />
+    <Content Include="admin\assets\vendor\fonts\fontawesome\webfonts\fa-brands-400d41d.eot" />
+    <Content Include="admin\assets\vendor\fonts\fontawesome\webfonts\fa-regular-400.eot" />
+    <Content Include="admin\assets\vendor\fonts\fontawesome\webfonts\fa-regular-400.ttf" />
+    <Content Include="admin\assets\vendor\fonts\fontawesome\webfonts\fa-regular-400.woff" />
+    <Content Include="admin\assets\vendor\fonts\fontawesome\webfonts\fa-regular-400d41d.eot" />
+    <Content Include="admin\assets\vendor\fonts\fontawesome\webfonts\fa-solid-900.eot" />
+    <Content Include="admin\assets\vendor\fonts\fontawesome\webfonts\fa-solid-900.ttf" />
+    <Content Include="admin\assets\vendor\fonts\fontawesome\webfonts\fa-solid-900.woff" />
+    <Content Include="admin\assets\vendor\fonts\fontawesome\webfonts\fa-solid-900d41d.eot" />
+    <Content Include="admin\assets\vendor\fonts\material-design-iconic-font\fonts\materialdesignicons-webfontd41d.eot" />
+    <Content Include="admin\assets\vendor\fonts\material-design-iconic-font\fonts\materialdesignicons-webfontdc99.eot" />
+    <Content Include="admin\assets\vendor\fonts\material-design-iconic-font\fonts\materialdesignicons-webfontdc99.ttf" />
+    <Content Include="admin\assets\vendor\fonts\material-design-iconic-font\fonts\materialdesignicons-webfontdc99.woff" />
+    <Content Include="admin\assets\vendor\fonts\simple-line-icons\fonts\Simple-Line-Icons4c82.eot" />
+    <Content Include="admin\assets\vendor\fonts\simple-line-icons\fonts\Simple-Line-Icons4c82.ttf" />
+    <Content Include="admin\assets\vendor\fonts\simple-line-icons\fonts\Simple-Line-Icons4c82.woff" />
+    <Content Include="admin\assets\vendor\fonts\simple-line-icons\fonts\Simple-Line-Iconsd41d.eot" />
+    <Content Include="admin\assets\vendor\fonts\themify-icons\fonts\themify.ttf" />
+    <Content Include="admin\assets\vendor\fonts\themify-icons\fonts\themify.woff" />
+    <Content Include="admin\assets\vendor\fonts\themify-icons\fonts\themify9f24.eot" />
+    <Content Include="admin\assets\vendor\fonts\themify-icons\fonts\themifyd41d.eot" />
+    <Content Include="admin\assets\vendor\fonts\weather-icons\fonts\weathericons-regular-webfont.eot" />
+    <Content Include="admin\assets\vendor\summernote\editor-fonts\summernote4c4d.eot" />
+    <Content Include="admin\assets\vendor\summernote\editor-fonts\summernote4c4d.ttf" />
+    <Content Include="admin\assets\vendor\summernote\editor-fonts\summernote4c4d.woff" />
+    <Content Include="admin\assets\vendor\summernote\editor-fonts\summernoted41d.eot" />
+    <Content Include="admin\README.md" />
+    <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
+    <Content Include="Scripts\jquery-3.0.0.js" />
+    <Content Include="Scripts\jquery-3.0.0.min.js" />
+    <Content Include="Scripts\jquery-3.0.0.slim.js" />
+    <Content Include="Scripts\jquery-3.0.0.slim.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\popper-utils.js" />
+    <Content Include="Scripts\popper-utils.min.js" />
+    <Content Include="Scripts\popper.js" />
+    <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\umd\popper-utils.js" />
+    <Content Include="Scripts\umd\popper-utils.min.js" />
+    <Content Include="Scripts\umd\popper.js" />
+    <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\NinjectWebCommon.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AuthorController.cs" />
+    <Compile Include="Controllers\BookController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PublishingHouseController.cs" />
+    <Compile Include="Controllers\SubCategoryController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Filters\CustomAuthorizeAttribute.cs" />
+    <Compile Include="Filters\CustomCategoryAttribute.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\MailHelper.cs" />
+    <Compile Include="Models\AccountVM.cs" />
+    <Compile Include="Models\AdminLoginVM.cs" />
+    <Compile Include="Models\AuthorVM.cs" />
+    <Compile Include="Models\BookDetailVM.cs" />
+    <Compile Include="Models\CartItem.cs" />
+    <Compile Include="Models\CategoryIndexVM.cs" />
+    <Compile Include="Models\CategoryVM.cs" />
+    <Compile Include="Models\HomeIndexVM.cs" />
+    <Compile Include="Models\MenuViewModel.cs" />
+    <Compile Include="Models\PublishingHouseVM.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\AdminBookController.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.0.0.slim.min.map" />
+    <Content Include="Scripts\jquery-3.0.0.min.map" />
+    <Content Include="Scripts\umd\popper.min.js.map" />
+    <Content Include="Scripts\umd\popper.js.map" />
+    <Content Include="Scripts\umd\popper-utils.min.js.map" />
+    <Content Include="Scripts\umd\popper-utils.js.map" />
+    <Content Include="Scripts\README.md" />
+    <Content Include="Scripts\popper.min.js.map" />
+    <Content Include="Scripts\popper.js.map" />
+    <Content Include="Scripts\popper-utils.min.js.map" />
+    <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\Footer.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Shared\Menu.cshtml" />
+    <Content Include="Views\Shared\DefaultMenu.cshtml" />
+    <Content Include="Views\Category\Category.cshtml" />
+    <Content Include="Views\Cart\EmptyCart.cshtml" />
+    <Content Include="Views\Cart\CartView.cshtml" />
+    <Content Include="Views\Shared\_CategoryView.cshtml" />
+    <Content Include="Views\Category\Index.cshtml" />
+    <Content Include="Views\Category\SubCategory.cshtml" />
+    <Content Include="Views\Book\Search.cshtml" />
+    <Content Include="Views\Author\Author.cshtml" />
+    <Content Include="Views\Shared\_HomeSlider.cshtml" />
+    <Content Include="Views\Account\Activate.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Admin\Home.cshtml" />
+    <Content Include="Views\Account\AdminLogin.cshtml" />
+    <Content Include="Views\Book\ListAll.cshtml" />
+    <Content Include="Views\Book\BookDetail.cshtml" />
+    <Content Include="Views\Book\NewBook.cshtml" />
+    <Content Include="Views\AdminBook\NewBook.cshtml" />
+    <Content Include="Views\Book\BookUpdate.cshtml" />
+    <Content Include="Views\Book\ListByCategory.cshtml" />
+    <Content Include="Views\Author\NewAuthor.cshtml" />
+    <Content Include="Views\PublishingHouse\NewPublishingHouse.cshtml" />
+    <Content Include="Views\Shared\Errors.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="BookStore\Images\BookImages\" />
+    <Folder Include="BookStore\Images\PublishingHouseImages\" />
+    <Folder Include="Views\SubCategory\" />
+    <Folder Include="Views\User\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BookStore.BLL\BookStore.BLL.csproj">
+      <Project>{91566778-B457-4F1F-B6C7-5A47E9465566}</Project>
+      <Name>BookStore.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookStore.Core\BookStore.Core.csproj">
+      <Project>{E6D5BAE1-3B58-4DFD-92B7-4AB83C0ACDCE}</Project>
+      <Name>BookStore.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookStore.Model\BookStore.Model.csproj">
+      <Project>{d3cbe795-56cd-4b74-a9fd-81ab6cf7d5ab}</Project>
+      <Name>BookStore.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>53948</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:53948/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.3.0-preview8-19405-04\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.3.0-preview8-19405-04\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.3.0-preview8-19405-04\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.3.0-preview8-19405-04\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

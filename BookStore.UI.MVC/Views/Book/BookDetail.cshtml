@@ -1,0 +1,43 @@
+﻿@using BookStore.Model.Models
+@model Book
+@{
+    ViewBag.Title = "BookDetail";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="offset-xl-2 col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="row">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 pr-xl-0 pr-lg-0 pr-md-0  m-b-30">
+                <div class="product-slider">
+                    <div id="productslider-1" class="product-carousel carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item">
+                                <img class="d-block" src="@Model.ImagePath" alt="@Model.Name">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 pl-xl-0 pl-lg-0 pl-md-0 border-left m-b-30">
+                <div class="product-details">
+                    <div class="border-bottom pb-3 mb-3">
+                        <h2 class="mb-3">@Model.Name</h2>
+                        <h3 class="mb-0 text-primary">@Model.Price</h3>
+                    </div>
+                    <div class="product-size border-bottom">
+                        Kategori: @Model.SubCategory.Category.Name / @Model.SubCategory.Name<br />
+                        Yazar: @Model.Author.FirstName @Model.Author.LastName<br />
+                        Yayınevi: @Model.PublishingHouse.CompanyName
+                    </div>
+                    <div class="product-description">
+                        <h4 class="mb-1">Açıklama</h4>
+                        <p>@Model.Description</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+

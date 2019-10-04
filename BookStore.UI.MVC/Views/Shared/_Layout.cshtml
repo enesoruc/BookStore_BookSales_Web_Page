@@ -1,0 +1,262 @@
+﻿@using BookStore.Model.Models
+@{
+    List<Category> categories = Session["categories"] as List<Category>;
+    List<Campaign> campaigns = Session["campaigns"] as List<Campaign>;
+    User user = Session["user"] as User;
+}
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="icon" href="img/favicon.png" type="image/png" />
+    <title>Book Store</title>
+    <!-- Bootstrap CSS -->
+    <link href="~/BookStore/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/BookStore/vendors/linericon/style.css" rel="stylesheet" />
+    <link href="~/BookStore/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/BookStore/css/themify-icons.css" rel="stylesheet" />
+    <link href="~/BookStore/css/flaticon.css" rel="stylesheet" />
+    <link href="~/BookStore/vendors/owl-carousel/owl.carousel.min.css" rel="stylesheet" />
+    <link href="~/BookStore/vendors/lightbox/simpleLightbox.css" rel="stylesheet" />
+    <link href="~/BookStore/vendors/nice-select/css/nice-select.css" rel="stylesheet" />
+    <link href="~/BookStore/vendors/animate-css/animate.css" rel="stylesheet" />
+    <link href="~/BookStore/vendors/jquery-ui/jquery-ui.css" rel="stylesheet" />
+    <link href="~/BookStore/css/scrollBar.css" rel="stylesheet" />
+    <link href="~/BookStore/css/Slider.css" rel="stylesheet" />
+    <link href="~/BookStore/css/sourcesanspro-font.css" rel="stylesheet" />
+    <link href="~/BookStore/css/registerStyle.css" rel="stylesheet" />
+    <!-- main css -->
+    <link href="~/BookStore/css/style.css" rel="stylesheet" />
+    <link href="~/BookStore/css/responsive.css" rel="stylesheet" />
+    <link href="~/BookStore/css/megaMenu.css" rel="stylesheet" />
+    <link href="~/BookStore/css/miniSlider.css" rel="stylesheet" />
+    <link href="~/BookStore/css/hoverMenu.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!--================Header Menu Area =================-->
+    <header class="header_area">
+        <div class="top_menu">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="float-left">
+                            <p style="text-transform:capitalize">Telefon: 444 1 444</p>
+                            <p style="text-transform:capitalize">@Html.ActionLink("Sipariş Takip", "TrackOrder", "Order") </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="float-right">
+                            <ul class="right_side">
+                                <li>
+                                    <a href="cart.html" style="text-transform:capitalize">
+                                        Yayınevleri
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="tracking.html" style="text-transform:capitalize">
+                                        Yazarlar
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="contact.html" style="text-transform:capitalize">
+                                        Ne Okusam?
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main_menu">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg navbar-light w-100">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <a class="navbar-brand logo_h" href="/Home/Index">
+                        <img src="~/BookStore/img/BookStore4.png" style="width:200px;height:60px" />
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse offset w-100" id="navbarSupportedContent">
+                        <div class="row w-100 mr-0">
+                            <div class="col-lg-8 pr-0" style="padding-top:3%">
+                                <ul class="nav navbar-nav center_nav pull-right">
+                                    <li class="nav-item">
+                                        <form method="post" action="/Home/Search">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" placeholder="Kitap, Yazar" style="width:400px">
+                                                <div class="input-group-append">
+                                                    <input type="submit" class="btn btn-warning" value="Ara">
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4 pr-0">
+                                <ul class="nav navbar-nav navbar-right right_nav pull-right">
+                                    @if (Session["user"] != null)
+                                    {
+                                        <li class="dropdown nav-item">
+                                            <button class="dropbtn">@(user.FirstName+" "+user.LastName)</button>
+                                            <div class="dropdown-content">
+                                                <a href="/Account/Settings/">Hesap Ayarları</a>
+                                                <a href="/Order/MyOrders">Siparişlerim</a>
+                                                <a href="/Account/SafeOut">Güvenli Çıkış</a>
+                                            </div>
+                                        </li>
+                                    }
+                                    else
+                                    {
+                                        <li class="nav-item">
+                                            <a href="/Account/Login" class="icons">
+                                                <i class="ti-user" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                    }
+                                    <li class="nav-item">
+                                        <a href="/Cart/CartList" class="icons">
+                                            <span class="ti-shopping-cart"></span>
+                                            <span class="count">0</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+        </div>
+        <div class="content">
+            <ul class="exo-menu">
+                <li class="mega-drop-down">
+                    <a href="/Category/Index"><i class="fa fa-list"></i> Kategoriler</a>
+                    <div class="animated fadeIn mega-menu">
+                        <div class="mega-menu-wrap">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <h4 class="row mega-title">Kategoriler</h4>
+                                    <ul class="stander">
+                                        @if (categories != null)
+                                        {
+                                            foreach (Category item in categories)
+                                            {
+                                                <li>
+                                                    <a href="/Category/Category/@item.ID">@item.Name</a>
+                                                </li>
+                                            }
+                                        }
+                                    </ul>
+                                </div>
+                                <div class="col-md-4">
+                                    <h4 class="row mega-title">Kampanyalar</h4>
+                                    <ul class="description">
+                                        @if (campaigns != null)
+                                        {
+                                            foreach (Campaign item in campaigns)
+                                            {
+                                                <li>
+                                                    <a href="/Home/Campaigns/@item.ID">@item.Name</a>
+                                                </li>
+                                            }
+                                        }
+                                    </ul>
+                                </div>
+                                <div class="col-md-5">
+                                    <h4 class="row mega-title">Feature</h4>
+                                    <img class="img-responsive" src="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="~/Book/MostSales">Çok Satanlar</a></li>
+                <li><a href="/Book/News">Yeni Çıkanlar</a></li>
+            </ul>
+        </div>
+
+    </header>
+    <!--================Header Menu Area =================-->
+    @RenderBody()
+    <!--================ start footer Area  =================-->
+    @Html.Partial("Footer")
+    <!--================ End footer Area  =================-->
+    <div id="stop" class="scrollTop">
+        <img src="~/BookStore/img/scroll-top.png" />
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="~/BookStore/js/jquery-3.2.1.min.js"></script>
+    <script src="~/BookStore/js/popper.js"></script>
+    <script src="~/BookStore/js/bootstrap.min.js"></script>
+    <script src="~/BookStore/js/stellar.js"></script>
+    <script src="~/BookStore/vendors/lightbox/simpleLightbox.min.js"></script>
+    <script src="~/BookStore/vendors/nice-select/js/jquery.nice-select.js"></script>
+    <script src="~/BookStore/vendors/isotope/imagesloaded.pkgd.min.js"></script>
+    <script src="~/BookStore/vendors/isotope/isotope-min.js"></script>
+    <script src="~/BookStore/vendors/owl-carousel/owl.carousel.min.js"></script>
+    <script src="~/BookStore/js/jquery.ajaxchimp.min.js"></script>
+    <script src="~/BookStore/vendors/counter-up/jquery.waypoints.min.js"></script>
+    <script src="~/BookStore/vendors/counter-up/jquery.counterup.js"></script>
+    <script src="~/BookStore/js/mail-script.js"></script>
+    <script src="~/BookStore/js/theme.js"></script>
+    <script src="~/BookStore/js/scrollBar.js"></script>
+    <script src="~/BookStore/js/Slider.js"></script>
+    <script src="~/BookStore/js/jssor.slider-27.5.0.min.js"></script>
+    <script src="~/BookStore/js/megaMenu.js"></script>
+
+    @RenderSection("scripts", false)
+</body>
+
+</html>
+<script>
+
+    window.onload = function () {
+
+        $.ajax({
+            url: "/Cart/GetCartItemsCount",
+            type: "GET",
+            dataType: "json",
+            contentType: "application/json;charset=utf-8",
+            success: function (data) {
+                if (data != null) {
+                    $(".count").html(data);
+                }
+            }
+        });
+    }
+
+    $(".add_cart_btn").click(function () {
+        var bookID = $(this).attr("data-id");
+
+        $.ajax({
+            url: "/Cart/AddToCart/" + bookID,
+            type: "GET",
+            dataType: "json",
+            contentType: "application/json;charset=utf-8",
+            success: function (data) {
+                if (data != null) {
+                    $(".count").html(data);
+                    alert("Ürün Sepete Eklendi");
+                }
+                else {
+                    alert("Ürün Eklerken Hata Oluştu!");
+                }
+            }
+        });
+    });
+
+
+</script>
+
+</script>

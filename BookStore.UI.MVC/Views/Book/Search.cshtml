@@ -1,0 +1,198 @@
+﻿@using BookStore.UI.MVC.Models
+@model BookDetailVM
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--================Single Product Area =================-->
+<div class="product_image_area">
+    <div class="container">
+        <div class="row s_product_inner">
+            <div class="col-lg-6">
+                <div class="s_product_img">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active" style="padding-left:100px">
+                                <img class="d-block" src="@Model.ImagePath" alt="@Model.BookName" style="width:300px;height:400px"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 offset-lg-1">
+                <div class="s_product_text">
+                    <h3>@Model.BookName</h3>
+                    <h2>@Model.Price ₺</h2>
+                    <ul class="list">
+                        <li>
+                            <span>Category</span> :@Html.ActionLink(Model.CategoryName, "Category", "Category", new { id = Model.CategoryID },new {@class="active" })
+                        </li>
+                        <li>
+                            <span>Alt Kategori</span> : @Html.ActionLink(Model.SubCategoryName, "SubCategory", "Category", new { id = Model.SubCategoryID })
+                        </li>
+                        <li>
+                            <span>Yazar</span> : @Html.ActionLink(Model.Author, "Author", "Author", new { id = Model.AuthorID })
+                        </li>
+                        <li>
+                            <span>Yayınevi</span> : @Html.ActionLink(Model.PublishingHouse, "PublishingHouse", "PublishingHouse", new { id = Model.PublishingHouseID })
+                        </li>
+                    </ul>
+                    <br />
+                    <div class="product_count">
+                        <label for="qty">Adet:</label>
+                        <input type="text" name="qty" id="sst" maxlength="12" value="1" title="Quantity:" class="input-text qty" />
+                        <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;" class="increase items-count" type="button">
+                            <i class="lnr lnr-chevron-up"></i>
+                        </button>
+                        <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;" class="reduced items-count" type="button">
+                            <i class="lnr lnr-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="card_area">
+
+                        <a href="javascript:void(0)" class="main_btn" data-id="@Model.BookID">Sepete Ekle</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--================End Single Product Area =================-->
+<!--================Product Description Area =================-->
+<section class="product_description_area">
+    <div class="container">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="description-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description" aria-selected="true">Kitap Açıklaması</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="properties-tab" data-toggle="tab" href="#properties" role="tab" aria-controls="properties" aria-selected="false">Kitap Özellikleri</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="comments-tab" data-toggle="tab" href="#comments" role="tab" aria-controls="comments" aria-selected="false">Okuyucu Yorumları</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
+                <p>
+                    @Model.Description
+                </p>
+            </div>
+            <div class="tab-pane fade" id="properties" role="tabpanel" aria-labelledby="properties-tab">
+                <div class="table-responsive">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <h5>Width</h5>
+                                </td>
+                                <td>
+                                    <h5>128mm</h5>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="comments" role="tabpanel" aria-labelledby="comments-tab">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="comment_list">
+                            <div class="review_item">
+                                <div class="media">
+                                    <div class="d-flex">
+                                        <img src="img/product/single-product/review-1.png" alt="" />
+                                    </div>
+                                    <div class="media-body">
+                                        <h4>Blake Ruiz</h4>
+                                        <h5>12th Feb, 2017 at 05:56 pm</h5>
+                                        <a class="reply_btn" href="#">Reply</a>
+                                    </div>
+                                </div>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                                    sed do eiusmod tempor incididunt ut labore et dolore magna
+                                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                    ullamco laboris nisi ut aliquip ex ea commodo
+                                </p>
+                            </div>
+                            <div class="review_item">
+                                <div class="media">
+                                    <div class="d-flex">
+                                        <img src="img/product/single-product/review-3.png"
+                                             alt="" />
+                                    </div>
+                                    <div class="media-body">
+                                        <h4>Blake Ruiz</h4>
+                                        <h5>12th Feb, 2017 at 05:56 pm</h5>
+                                        <a class="reply_btn" href="#">Reply</a>
+                                    </div>
+                                </div>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                                    sed do eiusmod tempor incididunt ut labore et dolore magna
+                                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                    ullamco laboris nisi ut aliquip ex ea commodo
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="review_box">
+                            <h4>Post a comment</h4>
+                            <form class="row contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="Your Full name" />
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" id="email" name="email" placeholder="Email Address" />
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="number" name="number" placeholder="Phone Number" />
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <textarea class="form-control" name="message" id="message" rows="1" placeholder="Message"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 text-right">
+                                    <button type="submit" value="submit" class="btn submit_btn">Gönder</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Product Description Area =================-->
+@section scripts{
+    <script>
+        $(".main_btn").click(function () {
+            var bookID = $(this).attr("data-id");
+
+            $.ajax({
+                url: "/Cart/AddToCart/" + bookID,
+                type: "GET",
+                dataType: "json",
+                contentType: "application/json;charset=utf-8",
+                success: function (data) {
+                    if (data != null) {
+                        $(".count").html(data);
+                        alert("Ürün Sepete Eklendi");
+                    }
+                    else {
+                        alert("Ürün Eklerken Hata Oluştu!");
+                    }
+                }
+            });
+        });
+    </script>
+}

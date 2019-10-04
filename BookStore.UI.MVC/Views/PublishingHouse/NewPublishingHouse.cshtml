@@ -1,0 +1,46 @@
+﻿@using BookStore.UI.MVC.Models
+@model PublishingHouseVM
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="card">
+            <h5 class="card-header">Yeni Kitap</h5>
+            <div class="card-body">
+                <form method="post" action="/PublishingHouse/NewPublishingHouse" enctype="multipart/form-data">
+                    <div class="form-group">
+                        Yayınevi İsmi:
+                        @Html.TextBoxFor(a => a.CompanyName, new { @class = "form-control", placeholder = "Yayınevi İsmi" })
+                    </div>
+                    <div class="form-group">
+                        Yetkili İsim Soyisim:
+                        @Html.TextBoxFor(a => a.ContactName, new { @class = "form-control", placeholder = "Yetkili İsim Soyisim" })
+                    </div>
+                    <div class="form-group">
+                        İletişim Numarası:
+                        @Html.TextBoxFor(a => a.Phone, new { @class = "form-control", placeholder = "İletişim Numarası" })
+                    </div>
+                    <div class="form-group">
+                        A.ık Adres :
+                        @Html.TextAreaFor(a => a.AddressDetail, new { @class = "form-control", placeholder = "Açık Adres" })
+                    </div>
+                    <div class="custom-file mb-3">
+                        Yayınevi Logo
+                        <input type="file" class="custom-file-input" id="customFile" name="PHImage">
+                        <label class="custom-file-label" for="customFile">Resim Yükle</label>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-outline-secondary">Kaydet</button>
+                    </div>
+                </form>
+                @if (ViewBag.result != null)
+                {
+                    <script>alert("@ViewBag.result")</script>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+

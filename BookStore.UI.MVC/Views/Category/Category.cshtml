@@ -1,0 +1,132 @@
+﻿@using BookStore.Model.Models
+@model List<Book>
+@{
+    List<Category> categories = ViewBag.categories;
+    List<SubCategory> subCategories = ViewBag.subCategories;
+}
+<!--================Category Product Area =================-->
+<section class="cat_product_area section_gap">
+    <div class="container">
+        <div class="row flex-row-reverse">
+            <div class="col-lg-9">
+                <div class="product_top_bar">
+                    <div class="left_dorp">
+                        <select class="sorting">
+                            <option value="1">Default sorting</option>
+                            <option value="2">Default sorting 01</option>
+                            <option value="4">Default sorting 02</option>
+                        </select>
+                        <select class="show">
+                            <option value="1">Show 12</option>
+                            <option value="2">Show 14</option>
+                            <option value="4">Show 16</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="latest_product_inner">
+                    <div class="row">
+                        <div class="col-lg-12">&nbsp;</div>
+                        @if (Model.Count>0)
+                        {
+                            foreach (Book item in Model)
+                            {
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="single-product">
+                                        <div class="product-img">
+                                            <img class="card-img" src="@item.ImagePath" alt="@item.Name" style="width:200px;height:300px" />
+                                            <div class="p_icon">
+                                                <a href="/Book/Search/@item.ID">
+                                                    <i class="ti-eye"></i>
+                                                </a>
+                                                <a href="javascript:void(0)" class="add_cart_btn" data-id="@item.ID">
+                                                    <i class="ti-shopping-cart"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="product-btm">
+                                            <a href="javascript:void(0)" class="d-block">
+                                                <h4>@item.Name</h4>
+                                            </a>
+                                            <div class="mt-3">
+                                                @if (item.SubCategory.Category.Campaigns != null)
+                                                {
+                                                <span class="mr-4">@item.Price ₺</span>
+
+                                                <del>@item.Price ₺</del>
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            <span> Aradığınız Kriterlere Uygun Ürün Bulunamadı</span>
+                        }
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="left_sidebar_area">
+                    <aside class="left_widgets p_filter_widgets">
+                        <div class="l_w_title">
+                            <h3>Kategoriler</h3>
+                        </div>
+                        <div class="widgets_inner">
+                            <ul class="list">
+                                @if (categories != null)
+                                {
+                                    foreach (Category item in categories)
+                                    {
+                                        <li>
+                                            @Html.ActionLink(item.Name, "Category", "Category", new { id = item.ID }, null)
+                                        </li>
+                                    }
+                                }
+                                else if (subCategories != null)
+                                {
+                                    foreach (SubCategory item in subCategories)
+                                    {
+                                        <li>
+                                            @Html.ActionLink(item.Name, "SubCategory", "Category", new { id = item.ID }, null)
+                                        </li>
+                                    }
+                                }
+
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Category Product Area =================-->
+
+@section scripts{
+    <script>
+        $(".add_cart_btn").click(function () {
+            var bookID = $(this).attr("data-id");
+
+            $.ajax({
+                url: "/Cart/AddToCart/" + bookID,
+                type: "GET",
+                dataType: "json",
+                contentType: "application/json;charset=utf-8",
+                success: function (data) {
+                    if (data != null) {
+                        $(".count").html(data);
+                        alert("Ürün Sepete Eklendi");
+                    }
+                    else {
+                        alert("Ürün Eklerken Hata Oluştu!");
+                    }
+                }
+            });
+        });
+    </script>
+}

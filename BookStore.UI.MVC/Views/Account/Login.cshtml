@@ -1,0 +1,170 @@
+﻿@using BookStore.UI.MVC.Models
+@model AccountVM
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-content">
+
+    <div class="form-v8-content">
+        <div class="form-left">
+            <img src="~/BookStore/img/login.jpg" style="width:350px;height:100%" />
+        </div>
+        <div class="form-right">
+            <div class="tab">
+                <div class="tab-inner">
+                    <button class="tablinks" onclick="openCity(event, 'sign-up')" id="defaultOpen">Kayıt Ol</button>
+                </div>
+                <div class="tab-inner">
+                    <button class="tablinks" onclick="openCity(event, 'sign-in')">Giriş Yap</button>
+                </div>
+            </div>
+            @if (ViewBag.Mesaj!=null)
+            {
+                <script>alert(@ViewBag.Mesaj)</script>
+            }
+            <form class="form-detail" action="/Account/Register" method="post">
+                @Html.AntiForgeryToken()
+                <div class="tabcontent" id="sign-up">
+                    <div class="form-row">
+                        <label class="form-row-inner">
+                            @Html.TextBoxFor(a => a.FirstName, new { type = "text", @class = "input-text", placeholder = "İsim*", required = "required" })
+                        </label>
+                    </div>
+                    <div class="form-row">
+                        <label class="form-row-inner">
+                            @Html.TextBoxFor(a => a.LastName, new { type = "text", @class = "input-text", placeholder = "Soyisim*", required = "required" })
+                        </label>
+                    </div>
+                    <div class="form-row">
+                        <label class="form-row-inner">
+                            @Html.TextBoxFor(a => a.EMail, new { type = "email", @class = "input-text", placeholder = "Email*", required = "required" })
+                        </label>
+                    </div>
+                    <div class="form-row">
+                        <label class="form-row-inner">
+                            @Html.TextBoxFor(a => a.PhoneNumber, new { type = "text", @class = "input-text", placeholder = "(0555)-555-55-55*", required = "required" })
+                        </label>
+                    </div>
+                    <div class="form-row">
+                        <label class="form-row-inner">
+                            @Html.TextBoxFor(a => a.BirthDate, new { type = "date", required = "required" })
+                        </label>
+                    </div>
+                    <br />
+                    <div class="form-row">
+                        <label class="form-row-inner">
+                            @Html.TextBoxFor(a => a.UserName, new { type = "text", @class = "input-text", placeholder = "Kullanıcı Adı*", required = "required" })
+                        </label>
+                    </div>
+                    <div class="form-row">
+                        <label class="form-row-inner">
+                            @Html.TextBoxFor(a => a.Password, new { type = "password", @class = "input-text", placeholder = "Şifre*", required = "required" })
+                        </label>
+                    </div>
+                    <div class="form-row">
+                        <label class="form-row-inner">
+                            @Html.TextBoxFor(a => a.RePassword, new { type = "password", @class = "input-text", placeholder = "Şifre(Tekrar)*", required = "required" })
+                        </label>
+                    </div>
+                    <div>
+                        <label for="show-menu"><a href="javascript:void(0)"><u><b style="color:white">Üyelik Sözleşmesi </b></u> </a></label><label>'ni okudum, onaylıyorum.</label>
+                        <button type="button" style="display:none" data-toggle="modal" id="show-menu" data-target="#exampleModal"></button>
+                    </div>
+                    <div class="form-row-last">
+                        <input type="submit" name="register" class="register" value="Kayıt Ol">
+                    </div>
+                </div>
+            </form>
+            <form class="form-detail" action="/Account/Login" method="post">
+                @Html.AntiForgeryToken()
+                <div class="tabcontent" id="sign-in">
+                    <div class="form-row">
+                        <label class="form-row-inner">
+                            <input type="text" id="deneme" name="userName" class="input-text" required>
+                            <span class="label">Kullanıcı Adı*</span>
+                            <span class="border"></span>
+                        </label>
+                    </div>
+                    <div class="form-row">
+                        <label class="form-row-inner">
+                            <input type="password" name="password" class="input-text" required>
+                            <span class="label">Şifre*</span>
+                            <span class="border"></span>
+                        </label>
+                    </div>
+                    <div class="form-row-last">
+                        <input type="submit" class="register" id="myBtn" value="Giriş Yap">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content ">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"> ÜYELİK SÖZLEŞMESİ</h5>
+
+            </div>
+            <div class="modal-body">
+                <h6>1-TARAFLAR</h6><br />
+                İş bu Üyelik Sözleşme’si bir tarafta Trump Towers Kule 2, Kuştepe Mahallesi Mecidiyeköy Yolu Caddesi No: 12 Kat: 30-31-32 34387 Şişli - İstanbul adresinde faaliyet gösteren, 6563 sy. Elektronik Ticaretin Düzenlemesi Hakkında Kanun uyarınca bir hizmet sağlayıcı olan TURKUVAZ MÜZİK KİTAP MAĞAZACILIK VE PAZARLAMA A.Ş. (bundan sonra kısaca “BookStore” olarak anılacaktır)
+                ile “Üye” veya “Ziyaretçi” olarak BookStore.com alan adlı web sitesi veya mobil uygulama ya da BookStore’e ait diğer platformları kullanan “Kullanıcı” arasında akdedilmiştir (Sözleşme içerisinde Kullanıcı terimi Ziyaretçi veya Üye ayrımı olmaksızın tüm kullanıcıları, Üye ise sadece kayıtlı olan kullanıcıları kapsayacak şekilde kullanılmıştır).
+
+                Sözleşmede BookStore ve Kullanıcı ya da Üye ayrı ayrı Taraf ve birlikte Taraflar olarak anılacaktır.<br /><br />
+
+                <h6>2-SÖZLEŞMENİN AMACI</h6><br />
+                BookStore’in sahibi olduğu BookStore.com alan adlı internet sitesinde (bundan böyle kısaca "BookStore.com" olarak anılacaktır) ve/veya Apple Store, Google Store ve benzeri mobil uygulama mağazalarındaki BookStore tarafından sunulan BookStore mobil uygulamaları üzerinden Kullanıcıya sunacağı ürün ve hizmetlerin hangi şartlarda sunulacağını belirler.<br /><br />
+                <h6>3-KULLANICI'NIN YÜKÜMLÜLÜKLERİ</h6><br />
+                1- Kullanıcı, işbu sözleşmenin tamamını okuduğunu, içeriğini tamamen anladığını ve sözleşmede belirtilen ve BookStore.com alan adlı internet sitesinde veya BookStore mobil uygulamalarında (her bir mobil uygulama, ilgili uygulama mağazası kuralları gereği istisnai olarak değişik hüküm ve koşullar içerebilir) yer alan tüm hususları kayıtsız ve şartsız olarak kabul ettiğini ve onayladığını kabul ederek, belirtilen bu hususlar ile ilgili olarak herhangi bir itiraz ve defi ileri sürmeyeceğini şimdiden beyan ve taahhüt etmektedir.<br />
+
+                2- Kullanıcı, BookStore tarafından Platformlarda sunulan hizmeti hiçbir şekilde kamu düzenini bozucu, genel ahlaka aykırı, başkalarını rahatsız ve taciz edecek şekilde, yasalara aykırı bir amaç için, başkalarının fikri veya sınai haklarına (telif, marka veya patent, vs.) tecavüz edecek şekilde kullanamaz. Ayrıca başkalarının BookStore.com veya uygulamalar üzerinden verilen hizmetleri kullanmasını önleyici veya zorlaştırıcı faaliyet ve işlerde bulunamaz. Kullanıcı, yukarıda belirtilen kısıtlamalara uymayı şimdiden kabul ve taahhüt eder.<br />
+
+                3- Üye, BookStore tarafından kendisine verilmiş olan ya da kendisinin belirlediği şifreyi başka kişi ya da kuruluşlara veremez. Kullanıcı'nın ve/veya Üye'nin işbu sözleşme ile sahip olduğu kullanım hakları sadece kendisine aittir, başkalarına devredilemez. Kullanıcı adı ve/veya şifrenin başka kişiler tarafından kullanılmasından üye sorumlu olup, BookStore’i bu nedenle herhangi bir şekilde sorumlu tutamaz.<br /><br />
+
+                <h6>5-GİZLİLİK VE KİŞİSEL VERİLERİN İŞLENMESİ</h6><br />
+                BookStore Platformlarını kullanmanız ve sadece kullanıcı olarak kalmanız veya üyeliğinizi tamamlayarak Üye olmanız halinde (“Üye”) aşağıdaki şart ve koşulları kabul, beyan ve taahhüt etmektesiniz.<br />
+
+                Platformlarımızın amacı Kullanıcılara özel reklam, kampanya ve diğer faydaların sunulmasıdır. Bu nedenle Platformlarımızda ait tüm kanallardan gerçekleştireceğiniz alışverişlerde kişiye özel sunduğumuz hizmetlerden ve avantajlardan faydalanabilirsiniz veya bilgilerinizin paylaşmasını istemediğiniz takdirde Platformlarımızı sınırlı özelliklerle kullanarak buna izin vermeyebilirsiniz.<br />
+
+                Eğer sadece ziyaretçi olarak kalır ve sayfalarımızı üye olmadan ziyaret ederseniz, sizinle ilgili yasal zorunluluklar haricinde bir bilgi toplamayız.<br /><br />
+
+                <h6>6-FESİH VE DEĞİŞİKLİKLER</h6><br />
+                BookStore ve üye bu üyelik sözleşmesini dilediği zaman sona erdirebilir.<br />
+
+                BookStore bu üyelik sözleşmesinin koşullarında, www.BookStore.com alan adlı internet sitesinde ve www.BookStore.com alan adlı internet sitesinin içeriğinde ya da diğer Platformlarda sunduğu hizmetlerde dilediği zaman ve yasal düzenlemeler gereği de tek taraflı olarak değişiklik, ayarlama ve güncelleme yapma hakkına sahiptir. Bu değişiklikler, ayarlamalar ve güncellemeler ilgili Platformda yayınlandığı andan itibaren geçerlilik kazanmış sayılır. Kullanıcılar www.BookStore.com alan adı altında yayın yapan internet sitesine her yeni girişlerinde veya ilgili Platformu her kullanımlarında, güncellenmiş/değiştirilmiş/ayarlanmış maddeleri kabul etmiş sayılmaktadırlar.<br /><br />
+
+                <h6>7-İHTİLAF</h6><br />
+                İşbu sözleşme kanunlar ihtilâfı kurallarına bakılmaksızın Türkiye Cumhuriyeti kanunlarına tâbi olup, bu kanunlara göre çözümlenecek ve İstanbul Mahkemeleri görev ve yer olarak yetkili olacaktır.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script type="text/javascript">
+
+        function openCity(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+    </script>
+}
