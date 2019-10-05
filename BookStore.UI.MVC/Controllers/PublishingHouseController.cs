@@ -21,10 +21,6 @@ namespace BookStore.UI.MVC.Controllers
             hata = new Hata();
             _publishingHouseService = publishingHouseService;
         }
-        public ActionResult Index()
-        {
-            return View();
-        }
 
         public ActionResult NewPublishingHouse()
         {
@@ -35,7 +31,34 @@ namespace BookStore.UI.MVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult NewPublishingHouse(PublishingHouseVM publishingHouseVM, HttpPostedFileBase PHImage)
         {
-            string imgName = string.Empty;
+            CreatePublishingHouse(publishingHouseVM,PHImage);
+            return View();
+        }
+
+        public ActionResult Update(int id)
+        {
+            return View(_publishingHouseService.Get(id));
+        }
+
+        [HttpPost]
+        public ActionResult Update(PublishingHouseVM publishingHouseVM,HttpPostedFileBase PHImage)
+        {
+            return View();
+        }
+
+        public JsonResult DeleteByID(int id)
+        {
+            _publishingHouseService.Delete(id);
+            return Json("ok",JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult ListAll()
+        {
+            return View(_publishingHouseService.GetAll());
+        }
+
+        private void CreatePublishingHouse(PublishingHouseVM publishingHouseVM, HttpPostedFileBase PHImage)
+        {
             bool result = false;
             PublishingHouse publishingHouse = new PublishingHouse();
             publishingHouse.CompanyName = publishingHouseVM.CompanyName;
@@ -44,17 +67,11 @@ namespace BookStore.UI.MVC.Controllers
             publishingHouse.AddressDetail = publishingHouseVM.AddressDetail;
             if (PHImage != null)
             {
-                Image image = Image.FromStream(PHImage.InputStream);
-                int width = 300;
-                int height = 300;
-                imgName = "/BookStore/Images/PublishingHouseImages/" + publishingHouse.CompanyName.Substring(0, 5) + Path.GetExtension(PHImage.FileName);//GetExtension verilen dosyanın uzantısını geri döner
-                Bitmap bitmap = new Bitmap(image, width, height);
-                bitmap.Save(Server.MapPath(imgName));
+                publishingHouse.ImagePath = CreateImagePath(PHImage, publishingHouse.CompanyName);
             }
-            publishingHouse.ImagePath =imgName;
             try
             {
-                result= _publishingHouseService.Add(publishingHouse);
+                result = _publishingHouseService.Add(publishingHouse);
                 if (result)
                 {
                     ViewBag.result = hata.KayıtBasarili;
@@ -68,8 +85,18 @@ namespace BookStore.UI.MVC.Controllers
             {
                 ViewBag.result = hata.HataOlustu;
             }
+        }
 
-            return View();
+        private string CreateImagePath(HttpPostedFileBase PHImage, string companyName)
+        {
+            string imgName = string.Empty;
+            Image image = Image.FromStream(PHImage.InputStream);
+            int width = 300;
+            int height = 300;
+            imgName = "/BookStore/Images/PublishingHouseImages/" + companyName.Substring(0, 5) + Path.GetExtension(PHImage.FileName);//GetExtension verilen dosyanın uzantısını geri döner
+            Bitmap bitmap = new Bitmap(image, width, height);
+            bitmap.Save(Server.MapPath(imgName));
+            return imgName;
         }
     }
 }

@@ -100,14 +100,6 @@ namespace BookStore.UI.MVC.Controllers
             return Json("ok", JsonRequestBehavior.AllowGet);
         }
 
-        //[HttpPost]
-        //public JsonResult Delete(int id)
-        //{
-        //    Book book = _bookService.Get(id);
-        //    _bookService.Delete(book);
-        //    return Json("ok", JsonRequestBehavior.AllowGet);
-        //}
-
         public ActionResult ListAll()
         {
             return View(_bookService.GetAll());
