@@ -8,15 +8,14 @@ namespace BookStore.UI.MVC.Controllers
 {
     public class ErrorController : Controller
     {
+        //deneme
         public ActionResult PageError()
         {
             Response.TrySkipIisCustomErrors = true;
             return View();
         }
         public ActionResult Page404(string aspxerrorpath)
-        {
-            if (!string.IsNullOrEmpty(aspxerrorpath))
-                ViewBag.Kaynak = aspxerrorpath;
+        {            
             Response.StatusCode = 404;
             Response.TrySkipIisCustomErrors = true;
             return View("PageError");
