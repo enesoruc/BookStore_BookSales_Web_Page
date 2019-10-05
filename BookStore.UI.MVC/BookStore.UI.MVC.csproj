@@ -109,6 +109,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="admin\layout.html" />
+    <Content Include="BookStore\css\404style.css" />
     <Content Include="BookStore\css\bootstrap.css" />
     <Content Include="BookStore\css\bootstrap.min.css" />
     <Content Include="BookStore\css\bootstrap.min2.css" />
@@ -886,6 +887,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -894,6 +896,7 @@
     <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PublishingHouseController.cs" />
     <Compile Include="Controllers\SubCategoryController.cs" />
@@ -960,7 +963,7 @@
     <Content Include="Views\Book\ListByCategory.cshtml" />
     <Content Include="Views\Author\NewAuthor.cshtml" />
     <Content Include="Views\PublishingHouse\NewPublishingHouse.cshtml" />
-    <Content Include="Views\Shared\Errors.cshtml" />
+    <Content Include="Views\Error\PageError.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

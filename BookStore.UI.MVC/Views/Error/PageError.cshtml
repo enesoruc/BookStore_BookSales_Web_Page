@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "PageError";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="notfound">
+    <div class="notfound">
+        <div class="notfound-404">
+            <h1>Hata Kodu : @Response.StatusCode</h1>
+        </div>
+        <div>
+            Hata Sebebi : @ViewBag.Kaynak
+        </div>
+        <h2>Oops, Aradığın Sayfayı Bulamadık!</h2>
+        <form class="notfound-search" action="/Book/Search">
+            <input type="text" placeholder="Ara...">
+            <button type="submit">Ara</button>
+        </form>
+        <a href="/Home/Index"><span class="arrow"></span>Anasayfa'ya Git</a>
+    </div>
+</div>
+
+
