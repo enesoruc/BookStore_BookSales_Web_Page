@@ -16,8 +16,23 @@ New Books:
 
 ![Image of Yaktocat](https://raw.githubusercontent.com/enesoruc/Transivo-Shipping-Otomation/master/UI%20Pages%20Pictures/CompanyDetaill.png)
 
+Categories
+>* Kullanıcılar burada tüm kategorilerden belirli sayıda son eklenen kitapları görüntüleyebilir. Sol menüden istediği kategoriye ait kitapları görüntüleyebilir
+
+Category
+
+>* Kullanıcı burada seçilen kategoriye ait kitapları görüntüleyebilir, dilerse sol menüden o kategoriye ait alt kategorilerden seçim gerçekleştirerek arama kriterlerini daha da özelleştirebilir. Dilediği kitapları sepetine ekleyerek alışverişine devam edebilir.
+
+BookDetail
+
+>* Kullanıcının görüntülemek istediği kitapın tüm ayrıntıları: Yazarı, Yayınevi, Açıklaması, Kitap'a ait yorumlar,Kitapın özelliklerini görüntüleyebilir.
+
+CartView
+
+>* Kullanıcı burada sepetine eklemiş olduğu kitapları, birim ücretlerini, toplam ödenecek ücreti görüntüler. Dilerse alışverişie devam eder veya ödemesini tamamlayarak alışverişini sonlandırabilir. Eğer kullanıcı sisteme kayıtlı değil ise kayıt sayfasına yönlendirilir.
+
 Login Page:
->* User and Company entries are made from separate screens.
+>* Kullanıcı burada kullanıcı adı ve şifre bilgilerini girerek giriş yapabilir.
 >* After checking the accuracy of the information, the input screen is redirected.
 ![Image of Yaktocat](https://raw.githubusercontent.com/enesoruc/Transivo-Shipping-Otomation/master/UI%20Pages%20Pictures/LoginPage.png)
 ### Admin
