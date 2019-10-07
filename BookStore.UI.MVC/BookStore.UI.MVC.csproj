@@ -121,6 +121,7 @@
     <Content Include="BookStore\css\Slider.css" />
     <Content Include="BookStore\css\sourcesanspro-font.css" />
     <Content Include="BookStore\Images\logo.png" />
+    <Content Include="BookStore\Images\UI Images\Account-AdminLogin.png" />
     <Content Include="BookStore\Images\UI Images\Account-Login.png" />
     <Content Include="BookStore\Images\UI Images\Admin-Home.png" />
     <Content Include="BookStore\Images\UI Images\Author-NewAuthor.png" />
