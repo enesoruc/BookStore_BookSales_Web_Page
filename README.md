@@ -29,7 +29,7 @@ BookDetail
 
 CartView
 
->* Kullanıcı burada sepetine eklemiş olduğu kitapları, birim ücretlerini, toplam ödenecek ücreti görüntüler. Dilerse alışverişie devam eder veya ödemesini tamamlayarak alışverişini sonlandırabilir. Eğer kullanıcı sisteme kayıtlı değil ise kayıt sayfasına yönlendirilir.
+>* Kullanıcı burada sepetine eklemiş olduğu kitapları, birim ücretlerini, toplam ödenecek ücreti görüntüler. Dilerse alışverişe devam edebilir veya ödemesini tamamlayarak alışverişini sonlandırabilir. Eğer kullanıcı sisteme kayıtlı değil ise kayıt sayfasına yönlendirilir.
 
 Login Page:
 >* Kullanıcı burada kullanıcı adı ve şifre bilgilerini girerek giriş yapabilir.
@@ -40,39 +40,26 @@ Login Page:
 Home Page:
 * Company officials are directed to the Admin Panel after login.
 * Authorized here,
-   * Number of Drivers Registered to the Company,
-   * Pending Approval Shippings Count,
-   * Number of Shipping Pending Delivery,
-   * It can display information such as Total Gain.
+   * Number of Books,
+   * Number of Authors,
+   * Number of Publishing Houses,
+   * Monthly Sale Count,
    * User posts,
    * Aktif onay bekleyen gönderilerin ayrıntılarını görebilirsiniz.
 ![Image of Yaktocat](https://raw.githubusercontent.com/enesoruc/Transivo-Shipping-Otomation/master/UI%20Pages%20Pictures/Admin%20Panel.png)
 
-Shipping Menu:
+Author Menu:
 >* In this menu, the authorized person can: View all details of transport in transit and pending shipping requests
  >* Existing Shippings
 ![Image of Yaktocat](https://raw.githubusercontent.com/enesoruc/Transivo-Shipping-Otomation/master/UI%20Pages%20Pictures/ListShippings.png)
 
->*  Pending Approval Shippings
+Publishin House Menu:
 ![Image of Yaktocat](https://raw.githubusercontent.com/enesoruc/Transivo-Shipping-Otomation/master/UI%20Pages%20Pictures/ListWait.png)
 
-Driver Menu:
->* In this menu, the authorized person can: See the registered drivers or register new drivers.
->* Driver Register
-![Image of Yaktocat](https://raw.githubusercontent.com/enesoruc/Transivo-Shipping-Otomation/master/UI%20Pages%20Pictures/DriverRegister.png)
 
->* Driver List
-![Image of Yaktocat](https://raw.githubusercontent.com/enesoruc/Transivo-Shipping-Otomation/master/UI%20Pages%20Pictures/ListDrivers.png)
 
-Car Menu:
->* In this menu, the authorized person can: view the vehicles registered to the company or register new vehicles.
 
->* Car Register
-![Image of Yaktocat](https://raw.githubusercontent.com/enesoruc/Transivo-Shipping-Otomation/master/UI%20Pages%20Pictures/DriverRegister.png)
-
->* Car List
-![Image of Yaktocat](https://raw.githubusercontent.com/enesoruc/Transivo-Shipping-Otomation/master/UI%20Pages%20Pictures/ListVehicles.png)
 
 View Posts:
 >* In this menu, the authorized person can: Users can view the messages sent to the company via the system according to date filters.
-![Image of Yaktocat](https://raw.githubusercontent.com/enesoruc/Transivo-Shipping-Otomation/master/UI%20Pages%20Pictures/ListMessages.png)
+
