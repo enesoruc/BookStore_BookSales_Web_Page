@@ -56,7 +56,10 @@
                                         <h5>@Model[i].Price ₺</h5>
                                         <span id="tutar"></span>
                                     </td>
-                                    <td><input type="button" id="sil" data-id="@Model[i].BookID" value="X" class="btn btn-sm" /></td>
+                                    <td>
+                                        @*<input type="button" id="sil" data-id="@Model[i].BookID" value="X" class="btn btn-sm" />*@ 
+                                        <a href="javascript:void(0)" class="btn delete_btn" data-id="@Model[i].BookID" style="color:black;background-color:#d9c2c2">X</a>
+                                    </td>
                                 </tr>
                             }
                             <tr class="bottom_button">
@@ -79,7 +82,7 @@
                                     <h5>Toplam Tutar</h5>
                                 </td>
                                 <td>
-                                    <h5>2160.00₺</h5>
+                                    <h5>51.94₺</h5>
                                 </td>
                             </tr>
                             <tr class="shipping_area">
@@ -122,7 +125,7 @@
 </section>
 <!--================End Cart Area =================-->
 @section scripts{
-    <script>
+<script>
         $("#deneme").click(function () {
             var ucret = $("#birimUcret").attr("data-ucret");
 
@@ -132,14 +135,34 @@
             var tutar2 = (miktar * ucret);
             $("#tutar").html = tutar2;
             document.getElementById("tutar").innerHTML = tutar2;
-            document.getElementById('tutar').innerText = tutar2;
-            document.getElementById('tutar').innerHTML = tutar2;
         });
 
-        $("#sil").click(function () {
+    //    $("#sil").click(function () {
+    //        var bookID = $(this).attr("data-id");
+    //        $.ajax({
+    //            url: "/Cart/DeleteToCart/" + bookID,
+    //            type: "GET",
+    //            dataType: "json",
+    //            contentType: "application/json;charset=utf-8",
+    //            success: function (data) {
+    //                if (data != null) {
+    //                    $(".count").html(data);
+    //                    alert("Ürün Silindi");
+    //                    location.reload();
+    //                }
+    //                else {
+    //                    alert("Ürün Silinirken Hata Oluştu!");
+    //                }
+    //            }
+    //        });
+    //});
+
+
+        $(".delete_btn").click(function () {
             var bookID = $(this).attr("data-id");
+
             $.ajax({
-                url: "/Cart/DeleteToCart/" + bookID,
+                url: "/Cart/DeleteFromCart/" + bookID,
                 type: "GET",
                 dataType: "json",
                 contentType: "application/json;charset=utf-8",
@@ -153,9 +176,8 @@
                         alert("Ürün Silinirken Hata Oluştu!");
                     }
                 }
-
-
             });
         });
-    </script>
+
+</script>
 }

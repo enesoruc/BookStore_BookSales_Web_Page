@@ -88,10 +88,10 @@
     top: 0;
     right: 0;
     margin-right: -12px;
-    margin-top: 13px;
+    margin-top: 14px;
     font-size: 13px;
-    width: 20px;
-    height: 20px;
+    width: 19px;
+    height: 19px;
     line-height: 20px;
     border-radius: 50%;
     display: block;
@@ -102,3 +102,7 @@
     -o-transition: .2s all ease-in-out;*/
     transition: .2s all ease-in-out;
 }
+    .count:hover {
+        margin-top: 10px;
+        background: #4cff00;
+    }

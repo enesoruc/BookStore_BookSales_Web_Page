@@ -62,7 +62,7 @@ namespace BookStore.UI.MVC.Controllers
             return Json(cart.Count, JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult DeleteToCart(int id)
+        public JsonResult DeleteFromCart(int id)
         {
             cart = Session["cart"] as List<CartItem>;
             CartItem currentBook = cart.Where(a => a.BookID == id).First();

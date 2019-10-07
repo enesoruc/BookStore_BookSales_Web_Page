@@ -7,23 +7,27 @@
 <div class="row">
     <div class="col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12">
         <div class="card">
-            <h5 class="card-header">Yeni Kitap</h5>
+            <h5 class="card-header">Yeni Yayınevi</h5>
             <div class="card-body">
                 <form method="post" action="/PublishingHouse/NewPublishingHouse" enctype="multipart/form-data">
                     <div class="form-group">
-                        Yayınevi İsmi:
-                        @Html.TextBoxFor(a => a.CompanyName, new { @class = "form-control", placeholder = "Yayınevi İsmi" })
+                        Yayınevi Adı
+                        @Html.TextBoxFor(a => a.CompanyName, new { @class = "form-control", placeholder = "Yayınevi Adı" })
                     </div>
                     <div class="form-group">
-                        Yetkili İsim Soyisim:
-                        @Html.TextBoxFor(a => a.ContactName, new { @class = "form-control", placeholder = "Yetkili İsim Soyisim" })
+                        <table style="width:100%">
+                            <tr>
+                                <td>Yetkili İsim Soyisim</td>
+                                <td>İletişim Numarası</td>
+                            </tr>
+                            <tr>
+                                <td>@Html.TextBoxFor(a => a.ContactName, new { @class = "form-control", placeholder = "Yetkili İsim Soyisim" })</td>
+                                <td>@Html.TextBoxFor(a => a.Phone, new { @class = "form-control", placeholder = "İletişim Numarası" })</td>
+                            </tr>
+                        </table>  
                     </div>
                     <div class="form-group">
-                        İletişim Numarası:
-                        @Html.TextBoxFor(a => a.Phone, new { @class = "form-control", placeholder = "İletişim Numarası" })
-                    </div>
-                    <div class="form-group">
-                        A.ık Adres :
+                        Açık Adres
                         @Html.TextAreaFor(a => a.AddressDetail, new { @class = "form-control", placeholder = "Açık Adres" })
                     </div>
                     <div class="custom-file mb-3">
@@ -31,7 +35,7 @@
                         <input type="file" class="custom-file-input" id="customFile" name="PHImage">
                         <label class="custom-file-label" for="customFile">Resim Yükle</label>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" style="text-align:center">
                         <button type="submit" class="btn btn-outline-secondary">Kaydet</button>
                     </div>
                 </form>

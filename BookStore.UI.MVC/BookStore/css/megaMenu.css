@@ -1,11 +1,7 @@
-﻿
-body {
-    margin: 0;
-    padding: 0;
-    font: 300 14px/18px Roboto;
-    background-image: url('../images/texture.png');
+﻿.logo {
+    width: 200px;
+    height: 55px
 }
-
 
 *,
 :after,
@@ -44,7 +40,8 @@ a, a:hover, a.active, a:active, a:visited, a:focus {
     float: left;
     list-style: none;
     position: relative;
-    background: #00334e;
+    background: #00334e;/*menubar default rengi*/
+    border-radius:10px 10px 0px 0px;
 }
 
     .exo-menu > li {
@@ -52,7 +49,7 @@ a, a:hover, a.active, a:active, a:visited, a:focus {
         float: left;
     }
 
-        .exo-menu > li > a {
+        .exo-menu > li> a {
             color: #ccc;
             text-decoration: none;
             text-transform: uppercase;
@@ -61,13 +58,16 @@ a, a:hover, a.active, a:active, a:visited, a:focus {
             -moz-transition: color 0.2s linear, background 0.2s linear;
             -o-transition: color 0.2s linear, background 0.2s linear;
             transition: color 0.2s linear, background 0.2s linear;
+            border-radius: 10px 10px 0px 0px;
         }
+
 
             .exo-menu > li > a.active,
             .exo-menu > li > a:hover,
             li.drop-down ul > li > a:hover {
-                background: #145374;
+                background: #03396c; /*menubar hover-color*/
                 color: #fff;
+                border-radius: 10px 10px 0px 0px;
             }
 
     .exo-menu i {
@@ -151,7 +151,7 @@ h4.row.mega-title {
     font-size: 14px;
     padding-left: 15px;
     padding-bottom: 13px;
-    text-transform: uppercase;
+    text-transform: capitalize;
     border-bottom: 1px solid #ccc;
 }
 
@@ -186,10 +186,10 @@ h4.row.mega-title {
     font-size: 14px;
     padding-left: 15px;
     padding-bottom: 13px;
-    text-transform: uppercase;
+    text-transform: capitalize;
     border-bottom: 1px solid #547787;
     padding-top: 15px;
-    background-color: #365670
+    background-color: #03396c; /*submenu arkaplan*/
 }
 
 .mega-menu ul li a {
@@ -287,7 +287,7 @@ ul.icon-des li {
 .flyout-left ul > li > a,
 .flyout-mega-wrap,
 .mega-menu {
-    background-color: #547787;
+    background-color: #004B8D; /*seçenekler menü*/
 }
 
     /*hover*/

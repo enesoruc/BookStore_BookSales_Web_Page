@@ -12,71 +12,100 @@
             <h5 class="card-header">Yeni Kitap</h5>
             <div class="card-body">
                 <form method="post" action="/Book/NewBook" enctype="multipart/form-data">
-                    <div class="form-group">Kitap İsmi: 
-                        @Html.TextBoxFor(a => a.Name, new { @class = "form-control", placeholder = "Kitap İsmi" })
+                    <div class="form-group">
+                        Kitap İsmi
+                        @Html.TextBoxFor(a => a.Name, new { @class = "form-control", placeholder = "Kitap ismi" })
                     </div>
-                    <div class="form-group">Ücreti: 
-                        @Html.TextBoxFor(a => a.Price, new { type = "number", @class = "form-control", placeholder = "0.00" })
+                    <div class="form-group">
+                        <table>
+                            <tr>
+                                <td>Ücreti</td>
+                                <td>Sayfa Sayısı</td>
+                                <td>Kitap Adedi</td>
+                            </tr>
+                            <tr>
+                                <td>@Html.TextBoxFor(a => a.Price, new { type = "number", @class = "form-control", placeholder = "0.00" })</td>
+                                <td> @Html.TextBoxFor(a => a.NumberOfPages, new { type = "number", @class = "form-control", placeholder = "Sayfa Sayısı" })</td>
+                                <td>@Html.TextBoxFor(a => a.Count, new { type = "number", @class = "form-control", placeholder = "Adet" })</td>
+                            </tr>
+                        </table>
                     </div>
-                    <div class="form-group">Sayfa sayısı
-                        @Html.TextBoxFor(a => a.NumberOfPages, new { type = "number", @class = "form-control", placeholder = "Sayfa Sayısı" })
-                    </div>
-                    <div class="form-group">Kitap adedi
-                        @Html.TextBoxFor(a => a.Count, new { type = "number", @class = "form-control", placeholder = "Adet" })
-                    </div>
-                    <div class="custom-file mb-3">Kitap resmi
+                    <div class="custom-file mb-3">
+                        Kitap resmi
                         <input type="file" class="custom-file-input" id="customFile" name="bookImage">
                         <label class="custom-file-label" for="customFile">Resim Yükle</label>
                     </div>
-                    <div class="form-group">Açıklama
+                    <div class="form-group">
+                        Açıklama
                         @Html.TextAreaFor(a => a.Description, new { @class = "form-control", placeholder = "Açıklama..." })
                     </div>
-                    <div class="form-group">Yaın yılı
+                    <div class="form-group">
+                        Yayın yılı
                         @Html.TextBoxFor(a => a.YearOfPrinting, new { type = "date", @class = "form-control" })
                     </div>
-                    <div class="form-group">Yayınevi: 
-                        <select class="form-control form-control-sm" name="publishingHouseID">
-                            @foreach (PublishingHouse item in ViewBag.publishingHouses)
-                            {
-                                <option value="@item.ID">@item.CompanyName</option>
-                            }
-                        </select>
-                    </div>
-                    <div class="form-group">Yazar: 
-                        <select class="form-control form-control-sm" name="authorID">
-                            @foreach (Author item in ViewBag.authors)
-                            {
-                                <option value="@item.ID">@item.FirstName @item.LastName</option>
-                            }
-
-                        </select>
-                    </div>
-                    <div class="form-group"> Kategori: 
-                        <select class="form-control form-control-sm" id="category" name="categoryID">
-                            @foreach (Category item in categories)
-                            {
-                                <option value="@item.ID">@item.Name</option>
-                            }
-                        </select>
-                    </div>
-                    <div class="form-group"> Alt Kategori:
-                        <select class="form-control form-control-sm" id="subCategory" name="subCategoryID">
-                            <option>Alt Kategori</option>
-                        </select>
-                    </div>
-                    <div class="form-group">Dil: 
-                        <select class="form-control form-control-sm" name="languageID">
-                            @foreach (Language item in ViewBag.languages)
-                            {
-                                <option value="@item.ID">@item.Name</option>
-                            }
-                        </select>
+                    <div class="form-group">
+                        <table style="width:100%">
+                            <tr>
+                                <td>Yayınevi</td>
+                                <td>Yazar</td>
+                                <td>Kitap Dili</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <select class="form-control form-control-sm" name="publishingHouseID">
+                                        @foreach (PublishingHouse item in ViewBag.publishingHouses)
+                                        {
+                                            <option value="@item.ID">@item.CompanyName</option>
+                                        }
+                                    </select>
+                                </td>
+                                <td>
+                                    <select class="form-control form-control-sm" name="authorID">
+                                        @foreach (Author item in ViewBag.authors)
+                                        {
+                                            <option value="@item.ID">@item.FirstName @item.LastName</option>
+                                        }
+                                    </select>
+                                </td>
+                                <td>
+                                    <select class="form-control form-control-sm" name="languageID">
+                                        @foreach (Language item in ViewBag.languages)
+                                        {
+                                            <option value="@item.ID">@item.Name</option>
+                                        }
+                                    </select>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-outline-secondary">Kaydet</button>
+                        <table style="width:100%">
+                            <tr>
+                                <td>Kategori</td>
+                                <td>Alt Kategori</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <select class="form-control form-control-sm" id="category" name="categoryID">
+                                        @foreach (Category item in categories)
+                                        {
+                                            <option value="@item.ID">@item.Name</option>
+                                        }
+                                    </select>
+                                </td>
+                                <td>
+                                    <select class="form-control form-control-sm" id="subCategory" name="subCategoryID">
+                                        <option>Alt Kategori</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="form-group" style="text-align:center">
+                        <button type="submit" class="btn btn-outline-success">Kaydet</button>
                     </div>
                 </form>
-                @if (ViewBag.result !=null)
+                @if (ViewBag.result != null)
                 {
                     <script>alert("@ViewBag.result")</script>
                 }
@@ -117,33 +146,33 @@
             });
         });
 
-        //$("#StartCity").change(function () {
-        //    var cityID = $("#StartCity").val();
-        //    $("#StartDistrict").append('<option>İlçe</option>');
-        //    $("#StartDistrict").empty();
+                                //$("#StartCity").change(function () {
+                                //    var cityID = $("#StartCity").val();
+                                //    $("#StartDistrict").append('<option>İlçe</option>');
+                                //    $("#StartDistrict").empty();
 
-        //    $.ajax({
-        //        url: "/Location/GetDistrictByCity/" + cityID,
-        //        type: "POST",
-        //        data: { "id": cityID },
-        //        dataType: "json",
-        //        contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-        //        success: function (resp) {
-        //            if (resp != null) {
-        //                $("#StartDistrict").empty();
-        //                $("#StartDistrict").append('<option>İlçe</option>');
-        //                $.each(resp, function (key, value) {
-        //                    $("#StartDistrict").append('<option value=' + value.Value + '>' + value.Text + '</option>');
-        //                });
-        //            } else {
-        //                alert("veri gelmedi");
-        //            }
-        //        },
-        //        error: function (err) {
-        //            alert("Bir Hata Oluştu!");
-        //            console.log(err);
-        //        }
-        //    });
-        //});
-        </script>
+                                //    $.ajax({
+                                //        url: "/Location/GetDistrictByCity/" + cityID,
+                                //        type: "POST",
+                                //        data: { "id": cityID },
+                                //        dataType: "json",
+                                //        contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+                                //        success: function (resp) {
+                                //            if (resp != null) {
+                                //                $("#StartDistrict").empty();
+                                //                $("#StartDistrict").append('<option>İlçe</option>');
+                                //                $.each(resp, function (key, value) {
+                                //                    $("#StartDistrict").append('<option value=' + value.Value + '>' + value.Text + '</option>');
+                                //                });
+                                //            } else {
+                                //                alert("veri gelmedi");
+                                //            }
+                                //        },
+                                //        error: function (err) {
+                                //            alert("Bir Hata Oluştu!");
+                                //            console.log(err);
+                                //        }
+                                //    });
+                                //});
+    </script>
 }

@@ -120,6 +120,17 @@
     <Content Include="BookStore\css\scrollBar.css" />
     <Content Include="BookStore\css\Slider.css" />
     <Content Include="BookStore\css\sourcesanspro-font.css" />
+    <Content Include="BookStore\Images\logo.png" />
+    <Content Include="BookStore\Images\UI Images\Admin-Home.png" />
+    <Content Include="BookStore\Images\UI Images\Author-NewAuthor.png" />
+    <Content Include="BookStore\Images\UI Images\Book-ListByCategory.png" />
+    <Content Include="BookStore\Images\UI Images\Book-NewBook.png" />
+    <Content Include="BookStore\Images\UI Images\Book-Search.png" />
+    <Content Include="BookStore\Images\UI Images\Cart-CartView.png" />
+    <Content Include="BookStore\Images\UI Images\Home-Categories.png" />
+    <Content Include="BookStore\Images\UI Images\Home-Category.png" />
+    <Content Include="BookStore\Images\UI Images\Home-Index.png" />
+    <Content Include="BookStore\Images\UI Images\PublishingHouse-NewPublishingHouse.png" />
     <Content Include="BookStore\img\agustos_kampanya_banner.png" />
     <Content Include="BookStore\img\indigo_modern_klasikler_banner.png" />
     <Content Include="BookStore\img\scroll-top.png" />
